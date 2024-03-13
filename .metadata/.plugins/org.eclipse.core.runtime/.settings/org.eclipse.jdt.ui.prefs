@@ -1,0 +1,8 @@
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="lezione1.primo.Persona"><rhs name\="lezione1.primo.Persona"/></lhs><lhs name\="lezione1.esercizi.Esercizi12345"><rhs name\="lezione1.esercizi.Esercizi12345"/></lhs><lhs name\="lezione2.Albero"><rhs name\="lezione2.Albero"/></lhs><lhs name\="lezione2.Animale"><rhs name\="lezione2.Animale"/></lhs><lhs name\="lezione2.Appartamento"><rhs name\="lezione2.Appartamento"/></lhs><lhs name\="lezione2.Automobile"><rhs name\="lezione2.Automobile"/></lhs><lhs name\="lezione2.Cane"><rhs name\="lezione2.Cane"/></lhs><lhs name\="lezione2.Computer"><rhs name\="lezione2.Computer"/></lhs><lhs name\="lezione2.Persona"><rhs name\="lezione2.Persona"/></lhs><lhs name\="lezione2.Telecomando"><rhs name\="lezione2.Telecomando"/></lhs><lhs name\="lezione10.esercizi.Studente"><rhs name\="lezione10.esercizi.Studente"/><rhs name\="lezione10.esercizi.Triennale"/><rhs name\="lezione10.esercizi.Magistrale"/></lhs><lhs name\="java.lang.Iterable"><rhs name\="java.sql.SQLException"/></lhs><lhs name\="java.lang.Exception"><rhs name\="java.sql.SQLException"/></lhs><lhs name\="java.lang.Throwable"><rhs name\="java.sql.SQLException"/></lhs><lhs name\="java.sql.SQLException"><rhs name\="java.sql.SQLException"/></lhs></history>
+content_assist_number_of_computers=14
+eclipse.preferences.version=1
+org.eclipse.jdt.ui.formatterprofiles.version=23
+spelling_locale_initialized=true
+typefilter_migrated_2=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

@@ -1,0 +1,118 @@
+CREATE DATABASE Primo_database;
+
+CREATE TABLE persona (
+
+    id INT (10) AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR (32),
+    cognome VARCHAR (32)
+
+);
+
+ALTER TABLE persona ADD COLUMN data_nascita DATETIME;
+
+INSERT INTO persona (id, nome, cognome) VALUES (1, "Mario", "Rossi");
+
+INSERT INTO persona (nome, cognome) VALUES ("Marco", "Bianchi");
+
+INSERT INTO persona (nome, cognome, data_nascita) VALUES ("Giovanna", "Neri", "1991-11-20");
+
+INSERT INTO persona (id, nome, cognome, data_nascita) VALUES (4, "Paola", "Verdi", "2001-10-5 12:30:21");
+INSERT INTO persona (id, nome, cognome, data_nascita) VALUES (5, "Carmen", "Blu", "1996-8-12 13:50");
+
+UPDATE persona SET data_nascita = "2005-12-12" WHERE id = 2;
+
+CREATE TABLE persona2 (
+
+    id INT (10) AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR (32),
+    cognome VARCHAR (32)
+
+);
+
+DROP TABLE persona2;
+
+CREATE TABLE automobile (
+    id INT (10) AUTO_INCREMENT PRIMARY KEY,
+    numero_telaio VARCHAR (32) UNIQUE,
+    marca VARCHAR (64),
+    modello VARCHAR(64),
+    id_persona INT (10),
+    FOREIGN KEY (id_persona) REFERENCES persona(id)
+);
+
+INSERT INTO automobile (id, numero_telaio, marca, modello, id_persona) VALUES (1, "P002", "Fiat", "Punto", 1);
+
+INSERT INTO automobile (numero_telaio, marca, modello, id_persona) VALUES ("U00B", "Fiat", "Punto", 1);
+INSERT INTO automobile (numero_telaio, marca, modello, id_persona) VALUES ("B009", "Alfa Romeo", "Giulietta", 3);
+INSERT INTO automobile (numero_telaio, marca, modello, id_persona) VALUES ("K008", "Opel", "Corsa", 2);
+INSERT INTO automobile (numero_telaio, marca, modello, id_persona) VALUES ("L003", "Iveco", "Daily", 2);
+
+UPDATE automobile SET marca = "Alfa Romeo", modello = "Giulietta" WHERE id = 2;
+
+DELETE FROM automobile WHERE id = 4;
+
+CREATE TABLE amico (
+    id INT (10) AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR (32),
+    cognome VARCHAR (32),
+    telefono VARCHAR (32),
+    anni INT (4)
+);
+
+INSERT INTO amico (id, nome, cognome, telefono, anni) VALUES (10, "Matteo", "Verdi", "01234", 24);
+INSERT INTO amico (nome, cognome, telefono, anni) VALUES ("Marco", "Rossi", "89123", 26);
+INSERT INTO amico (nome, cognome, telefono, anni) VALUES ("Giovanni", "Bianchi", "0823", 15);
+INSERT INTO amico (nome, cognome, telefono, anni) VALUES ("Mario", "Blu", "1263", 36);
+INSERT INTO amico (nome, cognome, telefono, anni) VALUES ("Nanni", "Neri", "8829", 65);
+INSERT INTO amico (nome, cognome, telefono, anni) VALUES ("Mattia", "Gialli", "9510", 45);
+
+SELECT *
+FROM amico
+WHERE id = 11;
+
+SELECT *
+FROM amico
+WHERE telefono = "9510";
+
+SELECT *
+FROM amico
+WHERE id < 13;
+
+SELECT *
+FROM amico
+WHERE id >= 13;
+
+SELECT nome, cognome
+FROM amico;
+
+SELECT nome, cognome
+FROM amico
+WHERE id <= 14;
+
+SELECT *
+FROM amico
+WHERE id > 11 AND  id < 14;
+
+SELECT *
+FROM amico
+WHERE id BETWEEN 10 AND 13;
+
+SELECT *
+FROM amico
+WHERE nome LIKE "M%";
+
+SELECT nome, cognome, telefono AS "cell"
+FROM amico;
+
+SELECT COUNT(*)
+FROM amico;
+
+SELECT COUNT(nome)
+FROM amico;
+
+SELECT MAX(anni), MIN(anni), AVG(anni)
+FROM amico;
+
+SELECT POWER(16,3) AS "potenza";
+
+SELECT SQRT(16384) AS "radice quadrata";

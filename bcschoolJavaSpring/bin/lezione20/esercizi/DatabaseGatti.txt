@@ -1,0 +1,15 @@
+Si crei un nuovo database chiamato Gatti, creare all’interno di esso una
+tabella chiamata Gatto che dovrà avere i seguenti attributi: microchip
+(primary key) di tipo intero, nome, età e colore_pelo.
+
+
+CREATE DATABASE IF NOT EXISTS Gatti;
+
+USE DATABASE Gatti;
+
+CREATE TABLE Gatto (
+    microchip INT(16) PRIMARY KEY,
+    nome VARCHAR(16),
+    eta INT(4),
+    colore_pelo VARCHAR(32)
+);

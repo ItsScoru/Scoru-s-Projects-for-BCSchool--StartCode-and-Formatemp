@@ -1,0 +1,77 @@
+package jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		//aggiungiDipendente(1, "Mario", "Rossi",1000);
+		aggiungiDipendente(2, "Marco", "Bianchi", 1600);
+
+	}
+	
+	public static void aggiungiDipendente(int id, String nome, String cognome, double stipendio) {
+		
+		Connection conn = null;
+		Statement stmt = null;
+		
+		String url = "jdbc:mysql://localhost:3306/dipendenti";
+		String username = "root";
+		String password = "";
+		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			
+			conn = DriverManager.getConnection(url, username, password);
+			
+			stmt = conn.createStatement();
+			
+			String insert = "INSERT INTO dip VALUES (" + id + ", '" + nome + "', '" + cognome + "', " + stipendio + ");";
+			
+			int result = stmt.executeUpdate(insert);
+			
+			if (result > 0) System.out.println(result);
+			else System.out.println("Problemi durante l'inserimento");
+			
+		} catch (ClassNotFoundException e) {
+			System.out.println("Classe non trovata");
+			e.printStackTrace();
+		} catch (SQLException e) {
+			System.out.println("Eccezione specifica SQL");
+			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Eccezione generica");
+			e.printStackTrace();
+		} finally {
+			
+			if(stmt != null) {
+				try {
+					stmt.close();
+					stmt = null;
+				} catch (SQLException e2) {
+					System.out.println("Errore durante la chiusura dello statement");
+					e2.printStackTrace();
+				}
+			}
+			
+			if (conn != null) {
+				try {
+					conn.close();
+					conn = null;
+				} catch (SQLException e2) {
+					System.out.println("Errore durante la chiusura di Connection");
+					e2.printStackTrace();
+				}
+			}
+			
+		}
+		
+		
+		
+	}
+
+}

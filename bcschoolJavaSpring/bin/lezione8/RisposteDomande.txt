@@ -1,0 +1,119 @@
+A– Rispondi alle seguenti domande argomentando la risposta:
+1) Cos’è un linguaggio di programmazione?
+2) Definisci il linguaggio Java.
+3) Cos’è un linguaggio orientato agli oggetti?
+4) Quali sono le caratteristiche principali di Java.
+5) Cos’è una variabile?
+6) Che differenza c’è tra un linguaggio compilato ed interpretato.
+7) Come si aggiunge un commento nel linguaggio Java?
+8) Che cos’è un oggetto?
+9) Che cos’è una classe?
+10) Quali sono gli operatori di confronto?
+11) Cosa si intende per istanza?
+12) Cos’è un attributo?
+13) Cosa sono JDK, JRE, JVM e a cosa servono?
+14) La sigla IDE cosa rappresenta?
+15) A cosa servono le librerie?
+16) Cos’è un metodo e a cosa serve? Qual è la firma di un metodo?
+17) Definisci la differenza tra un metodo statico e un metodo d’istanza.
+18) Che cos’è un costruttore?
+19) A cosa serve l’operatore new?
+20) Cos’è un package e a cosa serve?
+21) Descrivi i tipi di dato primitivi che conosci.
+22) Cosa sono i reference?
+23) Cosa si intende con indentazione? Perché è importante?
+24) Come avviene in Java il passaggio di parametri?
+25) Descrivi l’utilizzo della parola this.
+26) Cosa sono le Stringhe in Java?
+27) Cos’è un blocco di codice?
+28) Quali strutture di controllo conosci? Descrivile e fai un esempio.
+29) Spiega l’utilizzo dell’operatore ternario.
+30) Qual è la funzione di break? E di continue?
+
+1) Un linguaggio di programmazione è un linguaggio scritto, creato appositamente per semplificare la creazione di codice binario
+    per facilitare la scrittura di istruzioni da dare alle macchine (Come i computer).
+2) Java è un linguaggio di programmazione basato sul paradigma OOP (Object Oriented programming). I suoi punti di forza sono la robuztezza
+    dei programmi che si possono scrivere in Java (per via della minore quantità di bug), la riusabilità del codice (grazie a parole chiavi
+    come "import" o "extends") e la JVM (Java Virtual Machine) che permette di non scrivere codici appositi per vari sistemi operativi perchè
+    programmata per compilare Bytecode diverso in base all'ambiente in cui è installata.
+3) Un linguaggio OOP è caratterizzato dai legami che mostrano i vari file di un progetto. Alla stregua dei microservizi, programmare secondo
+    questo paradigma permette ai programmatori di risolvere un grande problema spezzettandolo in problemi più piccoli. Ciò inoltre riduce la 
+    possibile presenza di bug perchè ogni minima parte del progetto può essere testata singolarmente per verificarne l'utilizzo e soprattuto
+    riutilizzata in seguito evitando errori.
+4) La robustezza del codice che produce, la riusabilità dello stesso e la JVM, inoltre Java è "di alto livello", ciò significa che è più
+    simile alla sintassi che utilizziamo noi umani per comunicare, al contrario dei linguaggi "di basso livello" la cui sintassi è molto più
+    vicina al al linguaggio della macchina; ciò, unito alla presenza di svariati metodi già scritti, presenti nella JSL (Standard Java Library),
+    rende java semplice da utilizzare. Per di più Java dispone di un Garbage Collector che previene le perdite di memoria per via di variabili
+    inutilizzate e permette lo sviluppo di eccezzioni personalizzate per soddisfare ogni necessità che la JSL potrebbe non comprendere.
+5) Una variabile è un dato utile allo sviluppo del codice, che viene salvato in memoria per tutta la durata dell'esecuzione dell'algoritmo
+    che l'ha creata.
+6) Un linguaggio compilato ha una sintassi molto simile alla sintassi umana. Questo linguaggio però non può essere utilizzato dalla macchina.
+    Quindi va interpretato, grazie ad un interprete, che traduce la sintassi di programmazione in codice eseguibile, come il codice binario o
+    il Bytecode.
+7) Esistono diversi metodi per aggiungere commenti a Java. "//" permette di commentare una singola riga; "/*" permette di commentare su più
+    righe, fintanto che alla fine del commento si inserisca "*/"; in più esiste anche "/**" (imparato da poco, ma UTILISSIMO) ovvero il Javadoc,
+    che permette di descrivere varie informazioni che possono successivamente essere visualizzate grazie all'IDE, basta sempre terminare con "*/".
+8) Un oggetto, nel paradigma ad oggetti, è un'istanza di una classe, dalla quale possiamo accedere a variabili o metodi presenti in quest'ultima.
+9) Una classe, in Java, è un file sorgente al cui interno sono spesso presenti variabili o metodi.
+10) AND, OR, XOR e NOT (&&; ||; ^; !).
+11) Un istanza è una variabile che permette di accedere a metodi o altre variabili all'interno della sua classe di appartenenza. (Per quanto io
+    non abbia studiato C, credo che sia simile ad un pointer(?)).
+12) Un attributo è il nome con cui una variabile appartenente ad una classe viene chiamata. Il "Persona.nome" della classe "Persona" è un attributo.
+13) JDK sta per Java Developer Kit, ed è un insieme di file necessari per poter programmare Java sul proprio computer. JRE sta per Java Runtime
+    Enviroment, ed è appunto uno spazio (Enviroment) nel quale i programmi java vengono eseguiti grazie alla JVM. JVM sta per Java Virtual 
+    Machine, ed è appunto una macchina virtuale che permette allo stesso codice di poter essere eseguito su diverse macchine con diversi
+    sistemi operativi.
+14) IDE sta per Integrated Development Enviroment ed è, banalmente, un programma che permette di programmare.
+15) Le librerie sono un insieme di Moduli, Package e cartelle, nelle quali sono presenti file che contengono metodi già scritti, da poter
+    utilizzare per velocizzare la stesura di codice ed evitare bug. In Java, la più famosa libreria è la JSL.
+16) Un metodo è un algoritmo, ovvero un insieme di istruzioni da eseguire in ordine. I metodi si utilizzano per velocizzare la stesura di
+    codice ed evitare errori (presupponendo che un metodo sia scritto correttamente). In Java un metodo può essere indicato esplicitando prima
+    eventuali descrittori (parole chiavi come "public", "static", "protected" ecc.), inserendo quindi un tipo di ritorno ("void", "double" ecc.),
+    il nome che si vuole dare al metodo ("mioMetodo"), quindi le parentesi che possono essere vuote o contenere dei parametri utili al metodo ed
+    infine il blocco delle istruzioni racchiuso tra parentesi graffe.
+17) Un metodo statico è un metodo che solitamente non fa riferimento ad alcun attributo della classe. Essendo dunque "autonomo" rispetto alla classe
+    a cui appartiene, puù dunque essere chiamato senza bisogno di creare prima un'istanza della classe, al contrario di un metodo d'istanza. Per
+    esempio, un metodo "somma(int,int)" che somma i due interi che ha per argomento è più comune che sia statico, mentre un metodo "setNome(String)"
+    sarà legato ad un attributo della classe, e quindi andrà chiamato come "Persona.setNome(String)".
+18) Un costruttore è un metodo speciale che permette di inizializzare un'istanza di una certa classe. Anche se non presente all'interno del file
+    sorgente, un costruttore viene sempre chiamato quando la parola chiave "new" viene utilizzata. Un costruttore non può dunque essere statico,
+    non bisogna scrivere tipo di ritorno ma ne si può esplicitare la visibilità e, cosa più importante, deve avere lo stesso nome della casse a
+    cui appartiene. Ovviamente può sia avere le parentesi dei parametri vuote che prendere dati e verra comunque seguito da un blocco di istruzioni.
+19) L'operatore "new" è una parola chiave che permette l'inizializzazione in memoria di una nuova istanza di una certa classe.
+20) In Java, un package è un tipo speciale di cartella che racchiude dei file sorgente. È importante per la visibilità del codice perche al suo
+    interno viene creato "un ambiente di condivisione", tramite il quale una classe può accedere a metodi o attributi "public" di un'altra classe
+    senza bisogno di importarla.
+21) byte, short, int e long sono tipi di dato primitivi utilizzati per registrare in memoria numeri interi. float e double invece registrano
+    numeri decimali. char registra un singolo carattere alfanumerico (seguendo l'ascii). boolean registra un singolo bit che viene reputato
+    vero, "true" o falso, "false".
+22) I regeference sono indirizzi. Quando noi inizializziamo "int i = 0" stiamo creando una reference per il valore 0, alla quale noi possiamo
+    accedere semplicemente evocando i, che viene poi trasformata nell'indirizzo al quale risiede in memoria il valore 0, per poterlo morificare
+    o utilizzare.
+23) L'indentazione del codice permette una visualizzazione più chiara delle varie funzioni degli algoritmi. Solitamente utilizzata all'interno
+    delle parentesi graffe, l'indentazione viene spesso eseguita con una tabulazione, per evitare di scrivere le istruzioni nella stessa colonna
+    del metodo o ciclo che le sta utilizzando. È molto importante rispettare questa convenzione nel caso in cui il codice debba essere
+    visualizzato o utilizzato da altri sviuppatori.
+24) I metodi a volte possono accettare dei parametri da usare nelle istruzioni al loro interno. Per poter passare queste informazioni però bisogna
+    stare attenti e rispettare il tipo di dato che viene richiesto e l'ordine in cui si richiede che siano inseriti. Se in un parametro "boolean"
+    si inserisce un tipo di dato "String", non solo il compilatore notificherà l'errore ma, se eseguito, il metodo lancerà delle eccezzioni.
+25) this è una parola chiave che viene utilizzata spesso in caso di omonimia. Con this si indica un attributo o un metodo all'interno della stessa
+    classe nell quale è scritta. Se, ad esempio, la classe "Persona" avesse una variabile "String nome" e il metodo "Persona.setNome(String nome)
+    {nome = nome}" e questo metodo venisse chiamato, l'istruzione all'interno del metodo potrebbe essere mal'interpretata e settare il parametro
+    uguale a se stesso, anzi chè l'attributo. "this.nome (l'attributo nome di questa istanza) = nome (il nome della stringa richiesta dal parametro)"
+    sarebbe la forma corretta di stilare l'istruzione, perchè in caso di "nome = stringa" chi utilizza il metodo al di fuori della classe, in
+    assenza di annotazione Javadoc, non sa che la stringa nel parametro dovrebbe essere il nome della persona.
+26) Una stringa in java è un insieme di char raggruppati assieme dalla classe "String".
+27) Un blocco di codice sono tutte quelle istruzioni racchiuse da parentesi graffe. Un blocco di codice può ovviamente contenere altri blocchi
+    di codice al suo interno.
+28) Le strutture di controllo del codice sono l'"if" o "if else", lo switch case, i cicli come il "for" o "for each", "while" e "do while" e
+    e il "try/catch/finally" ed anche le parole chiave "break" o "continue". if, else e switch case vengono utilizzate per delle vere e proprie
+    scelte, per delle decisioni. for, for each, while e do while sono utilizzati per ripetere un determinato blocco di codice in base ad
+    un'espressione booleana. I try/catch/finally sono utilizzati qualora dei metodi possano lanciare delle eccezioni per gestirle. break viene
+    utilizzato per ternimare il blocco di codice all'interno del quale è scritto, facendo riprendere quindi l'esecuzione del programma da fuori
+    le parentesi graffe; mentre continue è utilizzato per saltare tutte le istruzioni successive, portando l'esecuzione all'iterazione
+    successiva (di solito utilizzati per switch case o cicli).
+29) L'operatore ternario "espressione booleana?istruzione in caso true:istruzione in caso false" viene utilizzato per assegnare un valore ad
+    una variabile ed è un metodo più semplice e veloce per scrivere delle di istruzioni "if else". Lo utilizzo spesso nei System.out.println(a?b:c).
+30) break viene utilizzato per ternimare il blocco di codice all'interno del quale è scritto, facendo riprendere quindi l'esecuzione del
+    programma da fuori le parentesi graffe; mentre continue è utilizzato per saltare tutte le istruzioni successive, portando l'esecuzione
+    all'iterazione successiva (di solito utilizzati per switch case o cicli).

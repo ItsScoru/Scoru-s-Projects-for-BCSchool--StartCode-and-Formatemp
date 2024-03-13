@@ -1,0 +1,153 @@
+CREATE DATABASE IF NOT EXISTS Esercizio1103;
+
+USE Esercizio1103;
+
+CREATE TABLE Studente (
+    Matricola VARCHAR(32) PRIMARY KEY,
+    Nome VARCHAR(32) NOT NULL,
+    Cognome VARCHAR(32) NOT NULL,
+    Email VARCHAR(64) NOT NULL,
+    PIN INT(16) NOT NULL
+);
+
+CREATE TABLE Corso (
+    Codice VARCHAR(16) PRIMARY KEY,
+    Nome VARCHAr(64)  NOT NULL
+);
+
+CREATE TABLE Carriera (
+    Studente VARCHAR(32),
+    Corso VARCHAR(16),
+    Voto INT(4)  NOT NULL,
+    Data DATE  NOT NULL,
+    FOREIGN KEY (Studente) REFERENCES Studente(Matricola),
+    FOREIGN KEY (Corso) REFERENCES Corso(Codice)
+);
+
+INSERT INTO Studente
+VALUES ("041/002059", "Vincenzo", "Liguori", "vliguori@bcsoft.it", 11111),
+("041/002061", "Alberto", "Bevilacqua", "albbvl@lamagis.it", 22222),
+("041/002062", "Antonio", "Di Gennaro", "di.ant@bcsoft.it", 33333),
+("041/002060", "Leandro", "Esposito", "Leo.esp@lamagis.it", 44444),
+("531/002990", "Pippo", "Franco", "Pi.franco@campania.it", 55555),
+("010/001000", "Francesco", "Salvati", "salvio@bcsoft.it", 66666),
+("010/002000", "Christian", "D'orta", "chris@lamagis.it", 77777),
+("010/003000", "Maria", "Gloria", "glo@bcsoft.it", 88888);
+
+INSERT INTO Corso
+VALUES ("041010", "Basi di Dati"),
+("041011", "Reti di Calcolatori"),
+("041012", "Sistemi Operativi"),
+("531010", "Tecnologie dei Sistemi Informatici"),
+("531011", "Economia Aziendale"),
+("010010", "Letteratura Italiana"),
+("010011", "Latino e Greco");
+
+INSERT INTO Carriera
+VALUES ("041/002059", "041010", 30, "12/12/01"),
+("041/002059", "041011", 30, "14/04/01"),
+("041/002059", "041012", 30, "14/05/01"),
+("041/002060", "041012", 25, "12/02/90"),
+("041/002061", "041010", 30, "18/07/94"),
+("041/002062", "041011", 25, "12/06/88"),
+("531/002990", "531010", 18, "27/09/60"),
+("531/002990", "531011", 28, "22/03/61"),
+("010/001000", "010010", 30, "16/05/04"),
+("010/002000", "010011", 30, "19/09/05");
+
+SELECT CONCAT(Studente.Nome, " ", Studente.Cognome) AS "Nome e Cognome"
+FROM Studente;
+
+SELECT Studente.Email, Studente.Matricola
+FROM Studente
+WHERE Studente.Nome LIKE "Vincenzo" AND Studente.Cognome LIKE "Liguori";
+
+SELECT DISTINCT Studente.Matricola, Studente.Cognome, Studente.Nome
+FROM Studente
+INNER JOIN Carriera ON Studente.Matricola = Carriera.Studente
+INNER JOIN Corso ON Carriera.Corso = Corso.Codice
+WHERE Carriera.Corso LIKE "041%";
+
+SELECT Corso.Nome
+FROM Corso
+WHERE Corso.Codice LIKE "041%";
+
+SELECT DISTINCT Studente.Matricola, Studente.Cognome, Studente.Nome
+FROM Studente
+INNER JOIN Carriera ON Studente.Matricola = Carriera.Studente
+INNER JOIN Corso ON Carriera.Corso = Corso.Codice
+WHERE Carriera.Corso LIKE "041%" AND Studente.Cognome LIKE "C%";
+
+SELECT Corso.Nome, Carriera.Voto, Carriera.Data
+FROM Carriera
+INNER JOIN Corso ON Carriera.Corso = Corso.Codice
+WHERE Carriera.Studente LIKE "041/002059";
+
+SELECT CONCAT(Studente.Nome, " ", Studente.Cognome) AS "Nome e Cognome"
+FROM Studente
+INNER JOIN Carriera ON Studente.Matricola = Carriera.Studente
+WHERE Carriera.Corso LIKE "041010";
+
+SELECT CONCAT(Studente.Nome, " ", Studente.Cognome) AS "Nome e Cognome"
+FROM Studente
+INNER JOIN Carriera ON Studente.Matricola = Carriera.Studente
+WHERE Carriera.Corso LIKE "041010" AND Carriera.Corso LIKE "041010";
+
+SELECT CONCAT(Studente.Nome, " ", Studente.Cognome) AS "Nome e Cognome"
+FROM Studente
+INNER JOIN Carriera ON Studente.Matricola = Carriera.Studente
+WHERE Carriera.Corso LIKE "041010" OR Carriera.Corso LIKE "041010";
+
+SELECT CONCAT(Studente.Nome, " ", Studente.Cognome) AS "Nome e Cognome"
+FROM Studente
+INNER JOIN Carriera ON Studente.Matricola = Carriera.Studente
+INNER JOIN Corso ON Carriera.Corso = Corso.Codice
+WHERE Corso.Nome LIKE "Basi di Dati";
+
+SELECT Corso.Nome, Carriera.Voto, Carriera.Data
+FROM Carriera
+INNER JOIN Corso ON Carriera.Corso = Corso.Codice
+INNER JOIN Studente ON Carriera.Studente = Studente.Matricola
+WHERE Studente.Nome LIKE "Vincenzo" AND Studente.Cognome LIKE "Liguori";
+
+SELECT CONCAT(Studente.Nome, " ", Studente.Cognome) AS "Nome e Cognome"
+FROM Studente
+INNER JOIN Carriera ON Studente.Matricola = Carriera.Studente
+INNER JOIN Corso ON Carriera.Corso = Corso.Codice
+WHERE Corso.Nome LIKE "Basi di Dati" AND Carriera.Voto > 27;
+
+SELECT Carriera.Data, Carriera.Voto, CONCAT(Studente.Nome, " ", Studente.Cognome) AS "Nome e Cognome"
+FROM Carriera
+INNER JOIN Corso ON Carriera.Corso = Corso.Codice
+INNER JOIN Studente ON Carriera.Studente = Studente.Matricola
+WHERE  Studente.Nome LIKE "Vincenzo" AND Studente.Cognome LIKE "Liguori" AND Corso.Nome LIKE "Basi di Dati";
+
+SELECT CONCAT(Studente.Nome, " ", Studente.Cognome) AS "Nome e Cognome"
+FROM Studente
+INNER JOIN Carriera ON Studente.Matricola = Carriera.Studente
+WHERE Carriera.Corso LIKE "010%";
+
+SELECT CONCAT(Studente.Nome, " ", Studente.Cognome) AS "Nome e Cognome"
+FROM Studente
+LEFT JOIN Carriera ON Carriera.Studente = Studente.Matricola
+WHERE Carriera.Studente IS NULL;
+
+SELECT Count(Carriera.Studente) AS "Num Studenti"
+FROM Carriera
+INNER JOIN Corso ON Carriera.Corso = Corso.Codice
+WHERE Corso.Nome LIKE "Basi di Dati";
+
+SELECT AVG(C.Voto), MAX(C.Voto), MIN(C.Voto)
+FROM Carriera AS C
+INNER JOIN Studente ON C.Studente = Studente.Matricola
+WHERE Studente.Nome LIKE "Pippo" AND Studente.Cognome LIKE "Franco";
+
+SELECT COUNT(C.Studente) AS "Studenti che hanno sostenuto l'esame", Corso.Nome
+FROM Carriera AS C
+LEFT JOIN Corso ON C.Corso = Corso.Codice
+GROUP BY C.Corso;
+
+SELECT COUNT(Carriera.Corso) AS "Num esami sostenuti", CONCAT(Studente.Nome, " ", Studente.Cognome) AS "Nome e Cognome"
+FROM Carriera RIGHT JOIN Studente ON Carriera.Studente = Studente.Matricola
+GROUP BY Carriera.Studente
+HAVING COUNT(Carriera.Corso) > 1;

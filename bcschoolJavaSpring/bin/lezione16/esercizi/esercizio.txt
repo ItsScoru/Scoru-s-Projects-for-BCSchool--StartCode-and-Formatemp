@@ -1,0 +1,233 @@
+Si considerino:
+    • La tabella di nome Libro con le seguenti proprietà: ID, ISBN, titolo, descrizione, costo (come tipo
+        di dato impostare DECIMAL (10,2)).
+    • La tabella di nome Autore con le seguenti proprietà: ID, Nome, Cognome, Codice Fiscale, Data di
+        nascita.
+
+Per ogni proprietà trovare il tipo di dato più adatto ad identificare la proprietà e per ogni tabella si
+identifichi la primary key, quali campi possono essere nulli, quali no e quali devono essere unique.
+Scrivere le DDL per costruire entrambe le tabelle e le DML per inserire più record.
+
+Tabella Libro:
+('12345FFGBN', 'Il vecchio e il mare', 'Santiago è un vecchio pescatore cubano colpito da una sfortuna
+che non lo abbandona. Sono ormai 84 giorni che non pesca nulla ed è ridotto quasi alla miseria.',
+12.40);
+('ABC12345G', 'Fra Pierino e il suo ciuchino', 'Titolo: Fra Pierino e il suo ciuchino; Autore: Munoz Juan
+Martin', 8.40);
+('LKJ716523T37A', 'Cerca Jovanka cerca', 'Autore Maria Marcone. Edizione Mursia.', 11.50);
+('6512T123AAB', 'Cristo s\'è fermato a Eboli', 'Autore Carlo Levi, è un romanzo autobiografico dello
+scrittore italiano Carlo Levi...', 7.90);
+('FTMR55123123H', 'Fontamara', 'Autore: Ignazio Silone, è un romanzo pubblicato nel 1933', 9.10);
+('RMA54ZJ22', 'Addio alle armi', 'Addio alle armi (A Farewell to Arms) è un romanzo dello scrittore
+statunitense Ernest Hemingway, pubblicato nel 1929.', 8.20);
+
+Tabella Autore:
+('Ernest', 'Hemingway', 'HMNRST99L21Z114U', '1899-07-21');
+('Ignazio', 'Silone', 'SLNGNZ00E01Z133S', '1900-05-01');
+('Juan', 'Muñoz Martín', 'MNZJNU29E13Z131V', '1929-05-13');
+('Maria', 'Marcone', 'MRCMRA54A14A662F', '1964-01-14');
+('Carlo', 'Levi', 'LVECRL02S29L219Q', '1902-11-29');
+
+C – A partire dalle tabelle dell'esercizio B,si identifichi la relazione che esiste tra le due tabelle.
+Aggiungere la Foreign Key nella tabella appropriata usando la DDL ALTER TABLE e la DML UPDATE per
+modificare i record per valorizzare il campo relativo alla Foreign Key.
+
+D – Al database dell’esercizio B, si aggiungano anche le tabelle Utente/Cliente e Prestito.
+    • Utente/Cliente deve avere ID come chiave primaria, nome e cognome come colonne di testo
+      non nulle e email, un’altra colonna di testo.
+    • Prestito deve avere ID come chiave primaria, DATA_INIZIO_PRESTITO e DATA_FINE_PRESTITO,
+      due colonne di tipo data e ID_UTENTE, chiave esterna di UTENTE e ID_LIBRO, chiave esterna di
+      LIBRO.
+
+E – Dopo aver aggiunto le tabelle, popolarle con 4 utenti e 7 prestiti.
+
+Tabella Utente/Cliente:
+('Marco', 'Friulani', 'mfriulani@yahoo.it');
+('Davide', 'Moraschi', 'mdave555@hotmail.it');
+('Manuela', 'Cecchini', 'cecchini_m@gmail.com');
+('Francesco', 'Montebovi', 'mbfra@libero.it');
+
+Tabella Prestito:
+(1, 6, '2022-07-04', '2022-07-30');
+(1, 5, '2022-07-04','2022-08-31');
+(2, 2, '2022-08-14', '2022-09-30');
+(3, 3, '2022-09-11', '2022-10-10');
+(3, 1, '2022-09-16', '2022-10-16');
+(3, 6, '2022-09-16', '2022-10-16');
+(1, 4, '2022-09-12', '2022-09-30');
+
+Partendo dal database creato, scrivere le seguenti query:
+1) Mostra tutti i libri.
+2) Mostrare gli autori di nome 'Carlo'.
+3) Mostrare i libri che contengono la parola 'romanzo' nella descrizione.
+4) Mostrare i libri il cui titolo inizia con 'Il vecchio'.
+5) Mostrare i libri il cui ISBN finisce con 'T37A'.
+6) Mostrare gli autori con id uguale a 2 oppure maggiore di 4.
+7) Mostrare i libri che contengono 'mare' nel titolo e che contengono 'romanzo' nella descrizione.
+8) Mostrare i libri che contengono 'mare' oppure 'racconto' nella descrizione.
+9) Mostrare i libri che contengono 'mare' nel titolo e che NON contengono 'romanzo' nella
+descrizione.
+10) Mostrare il costo dei libri nella cui descrizione hanno la parola 'romanzo'.
+11) Mostrare la somma del costo dei libri nella cui descrizione compare la parola 'romanzo'.
+12) Mostrare nome, cognome e data di nascita di tutti gli autori.
+13) Mostrare tutti i clienti che hanno fornito una email di gmail.
+14) Mostrare i clienti con id compreso tra 2 e 7.
+15) Mostrare tutti i prestiti che iniziano dal 4 luglio 2022 in poi.
+16) Mostrare tutti i prestiti che sono finiti il 30 luglio 2022
+
+
+
+CREATE DATABASE Esercizio1;
+
+CREATE TABLE IF NOT EXISTS Libro (
+    ID INT(4) AUTO_INCREMENT PRIMARY KEY,
+    ISBN VARCHAR(32) NOT NULL UNIQUE,
+    Titolo VARCHAR(64) NOT NULL,
+    Descrizione VARCHAR(256),
+    Costo DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Autore (
+    ID INT(4) AUTO_INCREMENT PRIMARY KEY,
+    Nome VARCHAR(32) NOT NULL,
+    Cognome VARCHAR(32) NOT NULL,
+    Codice_Fiscale VARCHAR(16) UNIQUE,
+    Data_di_nascita DATE 
+);
+
+INSERT INTO Libro (ISBN, Titolo, Descrizione, costo)
+VALUES ('12345FFGBN', 'Il vecchio e il mare', 'Santiago è un vecchio pescatore cubano colpito da una sfortuna
+che non lo abbandona. Sono ormai 84 giorni che non pesca nulla ed è ridotto quasi alla miseria.', 12.40),
+('ABC12345G', 'Fra Pierino e il suo ciuchino', 'Titolo: Fra Pierino e il suo ciuchino; Autore: Munoz Juan
+Martin', 8.40),
+('LKJ716523T37A', 'Cerca Jovanka cerca', 'Autore Maria Marcone. Edizione Mursia.', 11.50),
+('6512T123AAB', 'Cristo s'è fermato a Eboli', 'Autore Carlo Levi, è un romanzo autobiografico dello scrittore italiano Carlo Levi...', 7.90),
+('FTMR55123123H', 'Fontamara', 'Autore: Ignazio Silone, è un romanzo pubblicato nel 1933', 9.10),
+('RMA54ZJ22', 'Addio alle armi', 'Addio alle armi (A Farewell to Arms) è un romanzo dello scrittore statunitense Ernest Hemingway, pubblicato nel 1929.', 8.20);
+
+INSERT INTO Autore (Nome, Cognome, Codice_Fiscale, Data_di_nascita)
+VALUES ('Ernest', 'Hemingway', 'HMNRST99L21Z114U', '1899-07-21'),
+('Ignazio', 'Silone', 'SLNGNZ00E01Z133S', '1900-05-01'),
+('Juan', 'Muñoz Martín', 'MNZJNU29E13Z131V', '1929-05-13'),
+('Maria', 'Marcone', 'MRCMRA54A14A662F', '1964-01-14'),
+('Carlo', 'Levi', 'LVECRL02S29L219Q', '1902-11-29');
+
+ALTER TABLE Libro
+ADD COLUMN ID_Autore INT(4);
+
+ALTER TABLE Libro
+ADD FOREIGN KEY (ID_Autore) REFERENCES Autore(ID);
+
+UPDATE Libro 
+SET ID_Autore = 1 WHERE ID = 1; 
+
+UPDATE Libro 
+SET ID_Autore = 3 WHERE ID = 2;
+
+UPDATE Libro 
+SET ID_Autore = 4 WHERE ID = 3;
+
+UPDATE Libro 
+SET ID_Autore = 5 WHERE ID = 4;
+
+UPDATE Libro 
+SET ID_Autore = 2 WHERE ID = 5;
+
+UPDATE Libro 
+SET ID_Autore = 1 WHERE ID = 6;
+
+CREATE TABLE IF NOT EXISTS Utente (
+    ID INT(4) AUTO_INCREMENT PRIMARY KEY,
+    Nome VARCHAR(32) NOT NULL,
+    Cognome VARCHAR(32) NOT NULL,
+    Email VARCHAR(64)
+);
+
+CREATE TABLE IF NOT EXISTS Prestito (
+    ID INT(4) AUTO_INCREMENT PRIMARY KEY,
+    DATA_INIZIO_PRESTITO DATE,
+    DATA_FINE_PRESTITO DATE,
+    ID_UTENTE INT(4),
+    ID_LIBRO INT(4),
+    FOREIGN KEY (ID_UTENTE) REFERENCES Utente(ID),
+    FOREIGN KEY (ID_LIBRO) REFERENCES Libro(ID)
+);
+
+INSERT INTO Utente (Nome, Cognome, Email)
+VALUES ('Marco', 'Friulani', 'mfriulani@yahoo.it'),
+('Davide', 'Moraschi', 'mdave555@hotmail.it'),
+('Manuela', 'Cecchini', 'cecchini_m@gmail.com'),
+('Francesco', 'Montebovi', 'mbfra@libero.it');
+
+INSERT INTO Prestito (ID_UTENTE, ID_LIBRO, DATA_INIZIO_PRESTITO, DATA_FINE_PRESTITO)
+VALUES (1, 6, '2022-07-04', '2022-07-30'),
+(1, 5, '2022-07-04','2022-08-31'),
+(2, 2, '2022-08-14', '2022-09-30'),
+(3, 3, '2022-09-11', '2022-10-10'),
+(3, 1, '2022-09-16', '2022-10-16'),
+(3, 6, '2022-09-16', '2022-10-16'),
+(1, 4, '2022-09-12', '2022-09-30');
+
+#------------------------------------------------------------------------------
+
+SELECT *
+FROM Libro;
+
+SELECT *
+FROM Autore
+WHERE Nome = "Carlo";
+
+SELECT *
+FROM Libro
+WHERE Descrizione LIKE "%romanzo%";
+
+SELECT *
+FROM Libro
+WHERE Titolo LIKE "Il vecchio%";
+
+SELECT *
+FROM Libro
+WHERE ISBN LIKE "%T37A";
+
+SELECT *
+FROM Autore
+WHERE ID = 2 OR ID > 4;
+
+SELECT *
+FROM Libro
+WHERE Titolo LIKE "%mare%" AND Descrizione LIKE "%romanzo%";
+
+SELECT *
+FROM Libro
+WHERE Descrizione LIKE "%romanzo%" OR "%racconto%";
+
+SELECT *
+FROM Libro
+WHERE Titolo LIKE "%mare%" AND Descrizione NOT LIKE "%romanzo%";
+
+SELECT Costo
+FROM Libro
+WHERE Descrizione LIKE "%romanzo%";
+
+SELECT SUM(Costo) AS "Somma"
+FROM Libro
+WHERE Descrizione LIKE "%romanzo%";
+
+SELECT Nome, Cognome, Data_di_nascita
+FROM Autore;
+
+SELECT *
+FROM Utente
+Where Email LIKE "%gmail%";
+
+SELECT *
+FROM Utente
+Where ID BETWEEN 2 AND 7;
+
+SELECT *
+FROM Prestito
+WHERE DATA_INIZIO_PRESTITO > 2022-07-04;
+
+SELECT *
+FROM Prestito
+WHERE DATA_FINE_PRESTITO LIKE "2022-07-30";

@@ -1,0 +1,84 @@
+A– Per ognuna di queste coppie di entità, identifica la relazione e motiva la tua risposta:
+1. comune-provincia
+    One to many: All'interno della provincia si trovano più comuni.
+2. regione-provincia
+    One to many: All'interno di una regione si trovano più province.
+3. automobile-targa
+    One to one: Ogni macchina ha una sola targa.
+4. automobile-proprietario
+    One to many: Ogni macchina appartiene ad un solo proprietario, ma un proprietario può avere più macchine.
+5. automobile-guidatore
+    Many to many: Ogni automobile può essere guidata da più guidatori e un guidatore può guidare più automobili (non nello stesso momento ovviamente)
+6. aereo-passeggero
+    One to many: All'interno di un aereo ci sono più passeggeri.
+7. persona-codice fiscale
+    One to one: Ad ogni persona corrisponde un codice fiscale univoco.
+8. persona-lavoro
+    One to many: All'interno di un lavoro ci sono più persone.
+9. film-regista
+    One to many: Un film può essere girato da un solo regista, ma un regista può aver girato più film.
+10. film-attore 
+    Many to many: Un film può avere più attori e un attore può aver girato più film.
+11. film-cinema
+    Many to many: Un film può essere proposto in più cinema e un cinema può proporre più film.
+12. film-proiezione
+    One to one: Un film può avere una sola proiezione in una certa sala ad un certo orario e una proiezione può riguardare solo un film.
+13. libro-autore
+    Many to many: Un libro può essere scritto da più autori e un autore può aver scritto più libri.
+14. libro-personaggio
+    Many to many: All'interno di un libro si trovano più personaggi e un personaggio può apparire in più libri.
+15. sciatore–pista
+    One to many: Una pista può accogliere più sciatori.
+
+
+
+
+B– Realizzare i modelli ER:
+1. Negozio DVD
+    Negozio
+        -Nome
+        -Indirizzo
+        -Un solo proprietario
+    Proprietario
+        -Generalità
+        -Può avere più soci
+    Soci
+        -Generalità
+    Dvd
+        -Può avere più generi
+        -Durata
+        -Etichetta di produzione
+        -Anno di produzione
+    Genere
+        -Descrizione
+
+
+
+
+2. Cinema Hollywood
+    Si deve progettare una base di dati a supporto della programmazione cinematograficadella
+    catena di cinema Hollywood. Al momento dell’acquisto di un film da proiettare vengono
+    memorizzati il titolo, il genere, il regista, la durata e la data della prima proiezione. Ogni film ha
+    un solo regista di cui si memorizzano il nome, cognome, età e tipo di regia (comico,
+    drammatico...). Gli attori che recitano nel film sono caratterizzati dal nome, cognome, età e dal
+    tipo di recitazione (comico, drammatico, ...). Ogni film può essere trasmesso
+    contemporaneamente in soli tre cinema della catena. Ogni cinema è caratterizzato dal nome,
+    città, indirizzo e dalle sale che lo compongono, ciascuna con un determinato numero di posti
+    disponibili.
+    Altre info:
+        -(Nome, Cognome) è chiave per Attore e Regista
+        -(Nome, Città) è chiave per Cinema
+        -Un Film può essere inserito nel DB anche se non se ne conoscono gli attori
+        -Un Film ha uno e un solo regista
+
+
+
+
+3. Antiquariato
+    La mostra nazionale dell’antiquariato è costituita da stand, identificati da un numero; di ogni
+    stand interessa la zona in cui è situato, la superficie, il nome dell’antiquario espositore. In uno
+    stand sono esposti degli oggetti, identificati da un codice unico in tutta la mostra. Ciascun
+    oggetto è descritto dal tipo, i materiali di cui è costituito, l’epoca, il prezzo. Ad ogni visitatore
+    della mostra viene assegnato un codice, e di ogni visitatore viene registrato il nome, l’età e
+    quanto tempo si è fermato in ciascuno stand; alcuni visitatori effettuano degli acquisti di oggetti
+    in esposizione.
