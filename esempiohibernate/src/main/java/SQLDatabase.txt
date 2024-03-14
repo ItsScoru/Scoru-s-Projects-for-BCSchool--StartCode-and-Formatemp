@@ -1,0 +1,72 @@
+CREATE DATABASE DB_ESERCIZIO_HIBERNATE;
+
+
+CREATE TABLE AUTORE(
+    ID INT(10) AUTO_INCREMENT PRIMARY KEY,
+    NOME VARCHAR(100),
+    COGNOME VARCHAR(100)
+);
+
+CREATE TABLE CODICE_FISCALE(
+    ID INT(10) AUTO_INCREMENT PRIMARY KEY,
+    CF VARCHAR(16) UNIQUE NOT NULL
+);
+
+CREATE TABLE CLIENTE(
+    ID INT(10) AUTO_INCREMENT PRIMARY KEY,
+    NOME VARCHAR(100),
+    COGNOME VARCHAR(100),
+    EMAIL VARCHAR(100),
+    ID_CODICE_FISCALE INT(10),
+    FOREIGN KEY (ID_CODICE_FISCALE) REFERENCES CODICE_FISCALE(ID)
+);
+
+CREATE TABLE LIBRO(
+    ID INT(10) AUTO_INCREMENT PRIMARY KEY,
+    TITOLO VARCHAR(100),
+    DESCRIZIONE VARCHAR(1000),
+    ID_AUTORE INT(10)
+);
+
+CREATE TABLE PRENOTAZIONE(
+    ID INT(10) AUTO_INCREMENT PRIMARY KEY,
+    ID_CLIENTE INT(10),
+    ID_LIBRO INT(10),
+    DATA_INIZIO DATE,
+    DATA_FINE DATE
+);
+
+INSERT INTO AUTORE (ID, NOME, COGNOME) VALUES (1, 'Ernest', 'Hemingway');
+INSERT INTO AUTORE (ID, NOME, COGNOME) VALUES (2, 'Paulo', 'Coelho');
+INSERT INTO AUTORE (ID, NOME, COGNOME) VALUES (3, 'George', 'Orwell');
+INSERT INTO AUTORE (ID, NOME, COGNOME) VALUES (4, 'Italo', 'Calvino');
+INSERT INTO AUTORE (ID, NOME, COGNOME) VALUES (5, 'Dante', 'Alighieri');
+
+INSERT INTO LIBRO (ID, TITOLO, DESCRIZIONE, ID_AUTORE) VALUES (1, 'Il Vecchio e il Mare', 'Un giorno Santiago, un vecchio pescatore cubano, dopo una lotta furiosa in mare aperto, pesca il pesce più grande della sua vita; cerca poi di portarlo verso il porto, ma gli squali poco a poco spolpano e divorano il suo gigantesco marlin. L''uomo, così, torna indietro con soltanto una enorme lisca.', 1);
+INSERT INTO LIBRO (ID, TITOLO, DESCRIZIONE, ID_AUTORE) VALUES (2, 'Addio alle Armi', 'Il romanzo è in parte basato su esperienze personali dello scrittore.', 1);
+INSERT INTO LIBRO (ID, TITOLO, DESCRIZIONE, ID_AUTORE) VALUES (3, 'Il Cammino di Santiago', 'È un romanzo scritto da Paulo Coelho e pubblicato nel 1987. Dopo aver compiuto il pellegrinaggio a Santiago di Compostela nel 1986, l''autore decide di scrivere il racconto del suo viaggio.', 2);
+INSERT INTO LIBRO (ID, TITOLO, DESCRIZIONE, ID_AUTORE) VALUES (4, '1984', 'Nel 1984 la Terra è divisa in tre grandi potenze totalitarie, l''Oceania, l''Eurasia e l''Estasia, impegnate in una perenne guerra tra loro, il cui scopo principale è mantenere il controllo totale sulla società.', 3);
+INSERT INTO LIBRO (ID, TITOLO, DESCRIZIONE, ID_AUTORE) VALUES (5, 'La Fattoria degli Animali', 'Il libro riflette sugli eventi che portarono alla Rivoluzione russa e successivamente all''era staliniana dell''Unione Sovietica.', 3);
+INSERT INTO LIBRO (ID, TITOLO, DESCRIZIONE, ID_AUTORE) VALUES (6, 'Il Barone Rampante', 'È un romanzo di Italo Calvino scritto nel 1957.', 4);
+INSERT INTO LIBRO (ID, TITOLO, DESCRIZIONE, ID_AUTORE) VALUES (7, 'La Divina Commedia', 'La Comedìa, o Commedia, conosciuta soprattutto come Divina Commedia, è un poema allegorico-didascalico di Dante Alighieri, scritto in terzine incatenate di endecasillabi.', 5);
+
+INSERT INTO CODICE_FISCALE (ID, CF) VALUES (1, 'RSSMRO91E10I391F');
+INSERT INTO CODICE_FISCALE (ID, CF) VALUES (2, 'VRDMRA78E51H501P');
+INSERT INTO CODICE_FISCALE (ID, CF) VALUES (3, 'CMPFST48S44I752P');
+INSERT INTO CODICE_FISCALE (ID, CF) VALUES (4, 'LPPGVN82R28A339Z');
+INSERT INTO CODICE_FISCALE (ID, CF) VALUES (5, 'MGLNTN93E26A326W');
+
+INSERT INTO CLIENTE(ID, COGNOME, NOME, EMAIL, ID_CODICE_FISCALE) VALUES (1, 'Rossi', 'Mario', 'm.rossi91@yahoo.it', 1);
+INSERT INTO CLIENTE(ID, COGNOME, NOME, EMAIL, ID_CODICE_FISCALE) VALUES (2, 'Verdi', 'Mariella', 'v_mari78@libero.it', 2);
+INSERT INTO CLIENTE(ID, COGNOME, NOME, EMAIL, ID_CODICE_FISCALE) VALUES (3, 'Ciampi', 'Fausta', 'fauciampi@gmail.com', 3);
+INSERT INTO CLIENTE(ID, COGNOME, NOME, EMAIL, ID_CODICE_FISCALE) VALUES (4, 'Lippi', 'Giovanni', 'giova_l82@gmail.com', 4);
+INSERT INTO CLIENTE(ID, COGNOME, NOME, EMAIL, ID_CODICE_FISCALE) VALUES (5, 'Miglio', 'Antonio', 'amiglio93@gmail.com', 5);
+
+INSERT INTO PRENOTAZIONE(ID, ID_CLIENTE, ID_LIBRO, DATA_INIZIO, DATA_FINE) VALUES (1, 1, 1, '2023-01-18', '2023-03-01');
+INSERT INTO PRENOTAZIONE(ID, ID_CLIENTE, ID_LIBRO, DATA_INIZIO, DATA_FINE) VALUES (2, 2, 3, '2023-02-14', '2023-03-03');
+INSERT INTO PRENOTAZIONE(ID, ID_CLIENTE, ID_LIBRO, DATA_INIZIO, DATA_FINE) VALUES (3, 3, 4, '2023-01-24', NULL);
+INSERT INTO PRENOTAZIONE(ID, ID_CLIENTE, ID_LIBRO, DATA_INIZIO, DATA_FINE) VALUES (4, 4, 2, '2022-12-01', '2023-01-30');
+INSERT INTO PRENOTAZIONE(ID, ID_CLIENTE, ID_LIBRO, DATA_INIZIO, DATA_FINE) VALUES (5, 5, 5, '2022-12-05', NULL);
+INSERT INTO PRENOTAZIONE(ID, ID_CLIENTE, ID_LIBRO, DATA_INIZIO, DATA_FINE) VALUES (6, 1, 2, '2023-03-05', NULL);
+INSERT INTO PRENOTAZIONE(ID, ID_CLIENTE, ID_LIBRO, DATA_INIZIO, DATA_FINE) VALUES (7, 2, 1, '2023-03-05', NULL);
+INSERT INTO PRENOTAZIONE(ID, ID_CLIENTE, ID_LIBRO, DATA_INIZIO, DATA_FINE) VALUES (8, 4, 1, '2023-03-06', NULL);
