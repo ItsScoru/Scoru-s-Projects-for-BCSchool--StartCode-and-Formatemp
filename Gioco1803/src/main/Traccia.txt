@@ -1,0 +1,9 @@
+1. Creare una classe GiocoDaTavolo avente gli attributi nome (identificativo), casaProduttrice,
+numeroMinGiocatori, numeroMaxGiocatori, etaMinima, i metodi get/set e l’override del
+metodo toString(). Creare una classe Partecipante avente gli attributi id, nome, cognome, età, i
+metodi get/set e l’override del metodo toString(). Mappare le entità sul DB mediante l’utilizzo di
+Hibernate, tenendo conto che un gioco da tavolo viene giocato da più giocatori e che più
+giocatori giocano ad un solo gioco da tavolo (associazione One-to-Many). Implementare il
+metodo che salva le istanze sul DB, il metodo che legge le istanze dal DB, il metodo che cancella
+una determinata istanza mediante pk ed il metodo che aggiorna il nome ed il cognome di un
+partecipante

@@ -1,0 +1,3 @@
+2. Si scriva un programma che usi l’ORM Hibernate che permetta di mapparele tabelle Articolo,
+Famassort e Iva. Saranno presenti solo gli attributi indicati nello schema ER con la cardinalità
+indicata. Inserire almeno 5 righe per tabella e assegnare correttamente le relazioni.
