@@ -953,3 +953,22 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact antlr:antlr:j
 2024-03-15 17:39:40,899 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2024-03-15 17:39:40,902 [Worker-47: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
 2024-03-15 17:39:40,903 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-03-18 16:35:03,562 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-03-18 16:35:08,252 [Worker-15: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-03-18 16:35:08,264 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-03-18 16:35:08,292 [Worker-15: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-03-18 16:35:08,295 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-03-18 16:36:58,468 [Worker-14: Creating project "Gioco1803"] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Gioco1803:Gioco1803:0.0.1-SNAPSHOT @ C:\Users\fabri\Desktop\EclipseSPRING\Scoru-s-Projects-for-BCSchool--StartCode-and-Formatemp\Gioco1803\pom.xml.
+2024-03-18 16:36:58,951 [Worker-14: Creating project "Gioco1803"] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Gioco1803/src/main/java
+2024-03-18 16:36:58,954 [Worker-14: Creating project "Gioco1803"] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /Gioco1803/src/main/resources
+2024-03-18 16:36:58,955 [Worker-14: Creating project "Gioco1803"] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Gioco1803/src/test/java
+2024-03-18 16:36:58,956 [Worker-14: Creating project "Gioco1803"] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /Gioco1803/src/test/resources
+2024-03-18 16:36:59,460 [Worker-10: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-03-18 16:36:59,463 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-03-18 16:36:59,465 [Worker-10: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-03-18 16:36:59,467 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-03-18 16:38:34,724 [Worker-10: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Gioco1803:Gioco1803:0.0.1-SNAPSHOT @ C:\Users\fabri\Desktop\EclipseSPRING\Scoru-s-Projects-for-BCSchool--StartCode-and-Formatemp\Gioco1803\pom.xml.
+2024-03-18 16:38:35,001 [Worker-10: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-03-18 16:38:35,005 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-03-18 16:38:35,007 [Worker-10: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-03-18 16:38:35,010 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes

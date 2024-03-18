@@ -17,13 +17,13 @@ public class Matricola {
 	private Integer id;
 	
 	@Column(unique = true)
-	private Integer matricola;
+	private String matricola;
 
 	public Matricola() {
 		super();
 	}
 
-	public Matricola(Integer id, Integer matricola) {
+	public Matricola(Integer id, String matricola) {
 		super();
 		this.id = id;
 		this.matricola = matricola;
@@ -37,11 +37,11 @@ public class Matricola {
 		this.id = id;
 	}
 
-	public Integer getMatricola() {
+	public String getMatricola() {
 		return matricola;
 	}
 
-	public void setMatricola(Integer matricola) {
+	public void setMatricola(String matricola) {
 		this.matricola = matricola;
 	}
 

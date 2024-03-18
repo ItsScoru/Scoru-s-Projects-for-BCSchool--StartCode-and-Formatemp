@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.exception.ConstraintViolationException;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 
 import configuration.HibernateUtil;
@@ -117,6 +118,93 @@ public class CorsoDaoImpl implements InterfacciaDao<Corso>{
 
 		}
 		
+	}
+
+	@Override
+	public void update(int id, String denominazione) {
+
+		Transaction transaction = null;
+
+		try {
+
+			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+			Session session = sessionFactory.openSession();
+
+			transaction = session.beginTransaction();
+
+			NativeQuery<Corso> s = session.createNativeQuery("UPDATE Corso SET denominazione = :denominazione WHERE id = :id", Corso.class);
+
+			s.setParameter("denominazione", denominazione);
+			s.setParameter("id", id);
+			s.executeUpdate();
+
+			transaction.commit();
+
+			session.close();
+
+		} catch (ConstraintViolationException e) {
+
+			System.out.println("Valore di chiave primaria duplicato per la tabella Corso");
+			e.printStackTrace();
+			transaction.rollback();
+
+		} catch (HibernateException e) {
+
+			System.out.println("Eccezione specifica di Hibernate durante la query");
+			e.printStackTrace();
+			transaction.rollback();
+
+		} catch (Exception e) {
+
+			System.out.println("Eccezione generica");
+			e.printStackTrace();
+			transaction.rollback();
+
+		}
+
+	}
+
+	@Override
+	public void delete(int id) {
+
+		Transaction transaction = null;
+
+		try {
+
+			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+			Session session = sessionFactory.openSession();
+
+			transaction = session.beginTransaction();
+
+			NativeQuery<Corso> s = session.createNativeQuery("DELETE FROM Corso WHERE id = :id", Corso.class);
+
+			s.setParameter("id", id);
+			s.executeUpdate();
+
+			transaction.commit();
+
+			session.close();
+
+		} catch (ConstraintViolationException e) {
+
+			System.out.println("Valore di chiave primaria duplicato per la tabella Corso");
+			e.printStackTrace();
+			transaction.rollback();
+
+		} catch (HibernateException e) {
+
+			System.out.println("Eccezione specifica di Hibernate durante la query");
+			e.printStackTrace();
+			transaction.rollback();
+
+		} catch (Exception e) {
+
+			System.out.println("Eccezione generica");
+			e.printStackTrace();
+			transaction.rollback();
+
+		}
+
 	}
 
 }

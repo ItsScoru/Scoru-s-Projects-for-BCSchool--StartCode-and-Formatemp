@@ -10,4 +10,8 @@ public interface InterfacciaDao<T> {
 
     public void insertMany(List<T> lista);
 
+    public void update(int id, String nome);
+
+    public void delete(int id);
+
 }

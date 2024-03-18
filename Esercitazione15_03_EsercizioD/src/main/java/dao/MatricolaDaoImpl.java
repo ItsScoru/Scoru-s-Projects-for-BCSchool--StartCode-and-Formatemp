@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.exception.ConstraintViolationException;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 
 import configuration.HibernateUtil;
@@ -117,6 +118,93 @@ public class MatricolaDaoImpl implements InterfacciaDao<Matricola>{
 
 		}
 		
+	}
+
+	@Override
+	public void update(int id, String matricola) {
+
+		Transaction transaction = null;
+
+		try {
+
+			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+			Session session = sessionFactory.openSession();
+
+			transaction = session.beginTransaction();
+
+			NativeQuery<Matricola> s = session.createNativeQuery("UPDATE Matricola SET matricola = :matricola WHERE id = :id", Matricola.class);
+
+			s.setParameter("matricola", matricola);
+			s.setParameter("id", id);
+			s.executeUpdate();
+
+			transaction.commit();
+
+			session.close();
+
+		} catch (ConstraintViolationException e) {
+
+			System.out.println("Valore di chiave primaria duplicato per la tabella Matricola");
+			e.printStackTrace();
+			transaction.rollback();
+
+		} catch (HibernateException e) {
+
+			System.out.println("Eccezione specifica di Hibernate durante la query");
+			e.printStackTrace();
+			transaction.rollback();
+
+		} catch (Exception e) {
+
+			System.out.println("Eccezione generica");
+			e.printStackTrace();
+			transaction.rollback();
+
+		}
+
+	}
+
+	@Override
+	public void delete(int id) {
+
+		Transaction transaction = null;
+
+		try {
+
+			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+			Session session = sessionFactory.openSession();
+
+			transaction = session.beginTransaction();
+
+			NativeQuery<Matricola> s = session.createNativeQuery("DELETE FROM Matricola WHERE id = :id", Matricola.class);
+
+			s.setParameter("id", id);
+			s.executeUpdate();
+
+			transaction.commit();
+
+			session.close();
+
+		} catch (ConstraintViolationException e) {
+
+			System.out.println("Valore di chiave primaria duplicato per la tabella Matricola");
+			e.printStackTrace();
+			transaction.rollback();
+
+		} catch (HibernateException e) {
+
+			System.out.println("Eccezione specifica di Hibernate durante la query");
+			e.printStackTrace();
+			transaction.rollback();
+
+		} catch (Exception e) {
+
+			System.out.println("Eccezione generica");
+			e.printStackTrace();
+			transaction.rollback();
+
+		}
+
 	}
 
 }

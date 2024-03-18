@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="C:\Users\fabri\Desktop\EclipseSPRING\Scoru-s-Projects-for-BCSchool--StartCode-and-Formatemp\Esercitazione15_03_EsercizioD"/>
 			<item value="C:\Users\fabri\Desktop\EclipseSPRING\Scoru-s-Projects-for-BCSchool--StartCode-and-Formatemp\Esercitazione15_03_EsercizioC"/>
 			<item value="C:\Users\fabri\Desktop\EclipseSPRING\Scoru-s-Projects-for-BCSchool--StartCode-and-Formatemp\Esercitazione15_03_EsercizioB"/>
 			<item value="C:\Users\fabri\Desktop\EclipseSPRING\Workspace Java\JDBC\src\jdbc\Main.java"/>
@@ -46,16 +47,19 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="Gioco1803"/>
 			<item value="Esercitazione15_03_EsercizioD"/>
 			<item value="Esercitazione15_03_EsercizioC"/>
 			<item value="esempiohibernate"/>
 		</list>
 		<list key="name">
+			<item value="Gioco1803"/>
 			<item value="Esercitazione15_03_EsercizioD"/>
 			<item value="Esercitazione15_03_EsercizioC"/>
 			<item value="esempiohibernate"/>
 		</list>
 		<list key="artifactId">
+			<item value="Gioco1803"/>
 			<item value="Esercitazione15_03_EsercizioD"/>
 			<item value="Esercitazione15_03_EsercizioC"/>
 			<item value="esempiohibernate"/>
