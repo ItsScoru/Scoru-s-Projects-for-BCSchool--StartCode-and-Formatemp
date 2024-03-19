@@ -8,37 +8,44 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
+import entity.Corso;
+import entity.Matricola;
+import entity.Studente;
+
 public class HibernateUtil2 {
 
-    private static SessionFactory sessionFactory;
+	private static SessionFactory sessionFactory;
 
-    public static SessionFactory getSessionFactory() {
+	public static SessionFactory getSessionFactory() {
+		if (sessionFactory == null) {
 
-        if (sessionFactory == null) {
-            Configuration configuration = new Configuration();
+			Configuration configuration = new Configuration();
+			Properties settings = new Properties();
 
-            Properties settings = new Properties();
+			settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
+			settings.put(Environment.URL, "jdbc:mysql://localhost:3306/db_esercizioD");
+			settings.put(Environment.USER, "root");
+			settings.put(Environment.PASS, "");
+			settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
+			settings.put(Environment.SHOW_SQL, "true");
+			settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
+			settings.put(Environment.HBM2DDL_AUTO, "update");
 
-            settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
-            settings.put(Environment.URL, "jdbs:mysql://localhost:3306/db_eserciziod");
-            settings.put(Environment.USER, "root");
-            settings.put(Environment.PASS, "");
-            settings.put(Environment.DIALECT, "org.hibernate.dialect.MYSQL8Dialect");
-            settings.put(Environment.SHOW_SQL, "true");
-            settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
-            settings.put(Environment.HBM2DDL_AUTO, "update");
+			configuration.setProperties(settings);
 
-            configuration.setProperties(settings);
+			// Mappatura delle classi
+			configuration.addAnnotatedClass(Corso.class);
+			configuration.addAnnotatedClass(Matricola.class);
+			configuration.addAnnotatedClass(Studente.class);
 
-            ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
-                    .applySettings(configuration.getProperties()).build();
+			// registro dei servizi
+			ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
+					.applySettings(configuration.getProperties()).build();
 
-            sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+			sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+		}
 
-        }
-
-        return sessionFactory;
-
-    }
+		return sessionFactory;
+	}
 
 }

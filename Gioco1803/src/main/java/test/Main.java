@@ -41,12 +41,6 @@ public class Main {
 
         partecipanteDao.insertMany(listaGiocatori);
 
-        System.out.println(partecipanteDao.findAll());
-
-        System.out.println("--------------------------------");
-
-        System.out.println(ttgDao.findOne("Uno"));
-
     }
     
 }
