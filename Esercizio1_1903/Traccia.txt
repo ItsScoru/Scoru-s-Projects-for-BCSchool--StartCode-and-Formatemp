@@ -1,0 +1,11 @@
+1. Creare una classe Ordine avente gli attributi id, dataRichiesta, prezzoTotale, numeroArticoli, i
+metodi get/set e l’override del metodo toString(). Creare una classe Acquirente avente gli
+attributi codiceFiscale, nome, cognome, tel, i metodi get/set e l’override del metodo toString().
+Creare una classe Residenza avente gli attributi indirizzo, cap e città, i metodi get/set e l’override
+di toString(). Quest’ultima classe non avrà un id ma i suoi attributi dovranno essere mappati
+all’interno della tabella Acquirente (classe incorporabile).
+Mappare le entità sul DB mediante l’utilizzo di Hibernate, tenendo conto che un acquirente può
+effettuare più ordini e che un ordine è effettuato da un solo acquirente (associazione One-to-
+Many). Implementare il metodo che salva le istanze sul DB, il metodo che legge le istanze dal DB,
+il metodo che trova sul DB un determinato ordine in base al suo id, il metodo che cancella una
+determinata istanza mediante pk, il metodo che aggiorna il numero di telefono di un acquirente.

@@ -14,42 +14,42 @@ import javax.persistence.Table;
 public class Articolo {
 
     @Id
-    @Column
+    @Column(name = "codice_articolo")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String codArt;
+    private int codArt;
 
     @Column
     private String descrizione;
 
     @ManyToOne
-    @JoinColumn(name = "fam_assort")
+    @JoinColumn(name = "fam_assort", referencedColumnName = "id")
     private FamAssort famAssort;
 
     @ManyToOne
-    @JoinColumn(name = "id_iva")
+    @JoinColumn(name = "id_iva", referencedColumnName = "id")
     private Iva idIva;
 
     public Articolo() {
         super();
     }
 
-    public Articolo(String codArt, String descrizione) {
+    public Articolo(int codArt, String descrizione) {
         this.codArt = codArt;
         this.descrizione = descrizione;
     }
 
-    public Articolo(String codArt, String descrizione, FamAssort famAssort, Iva idIva) {
+    public Articolo(int codArt, String descrizione, FamAssort famAssort, Iva idIva) {
         this.codArt = codArt;
         this.descrizione = descrizione;
         this.famAssort = famAssort;
         this.idIva = idIva;
     }
 
-    public String getCodArt() {
+    public int getCodArt() {
         return codArt;
     }
 
-    public void setCodArt(String codArt) {
+    public void setCodArt(int codArt) {
         this.codArt = codArt;
     }
 

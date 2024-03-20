@@ -14,12 +14,12 @@ import org.hibernate.query.Query;
 import configuration.HibernateUtil;
 import entity.Iva;
 
-public class IvaDaoImpl implements InterfacciaDao<Iva>{
+public class IvaDaoImpl implements InterfacciaDao<Iva> {
 
-    @Override
-    public List<Iva> findAll() {
+	@Override
+	public List<Iva> findAll() {
 
-        List<Iva> listsIva = new ArrayList<>();
+		List<Iva> listsIva = new ArrayList<>();
 
 		try {
 
@@ -44,12 +44,12 @@ public class IvaDaoImpl implements InterfacciaDao<Iva>{
 
 		return listsIva;
 
-    }
+	}
 
-    @Override
-    public Iva findOne(int id) {
+	@Override
+	public Iva findOne(int id) {
 
-        Iva iva = null;
+		Iva iva = null;
 
 		try {
 
@@ -76,12 +76,12 @@ public class IvaDaoImpl implements InterfacciaDao<Iva>{
 
 		return iva;
 
-    }
+	}
 
-    @Override
-    public void insertMany(List<Iva> listaIva) {
+	@Override
+	public void insertMany(List<Iva> listaIva) {
 
-        Transaction transaction = null;
+		Transaction transaction = null;
 
 		try {
 
@@ -118,12 +118,12 @@ public class IvaDaoImpl implements InterfacciaDao<Iva>{
 
 		}
 
-    }
+	}
 
-    @Override
-    public void update(int id, String nome) {
+	@Override
+	public void update(int id, String descrizione) {
 
-        Transaction transaction = null;
+		Transaction transaction = null;
 
 		try {
 
@@ -132,9 +132,10 @@ public class IvaDaoImpl implements InterfacciaDao<Iva>{
 
 			transaction = session.beginTransaction();
 
-			NativeQuery<Iva> s = session.createNativeQuery("UPDATE Iva SET nome = :nome WHERE id = :id", Iva.class);
+			NativeQuery<Iva> s = session.createNativeQuery("UPDATE Iva SET descrizione = :descrizione WHERE id = :id",
+					Iva.class);
 
-			s.setParameter("nome", nome);
+			s.setParameter("descrizione", descrizione);
 			s.setParameter("id", id);
 			s.executeUpdate();
 
@@ -161,13 +162,13 @@ public class IvaDaoImpl implements InterfacciaDao<Iva>{
 			transaction.rollback();
 
 		}
-    
-    }
 
-    @Override
-    public void delete(int id) {
+	}
 
-        Transaction transaction = null;
+	@Override
+	public void delete(int id) {
+
+		Transaction transaction = null;
 
 		try {
 
@@ -205,6 +206,51 @@ public class IvaDaoImpl implements InterfacciaDao<Iva>{
 
 		}
 
-    }
-    
+	}
+
+	public void updateFull(int id, String descrizione, double aliquota) {
+
+		Transaction transaction = null;
+
+		try {
+
+			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+			Session session = sessionFactory.openSession();
+
+			transaction = session.beginTransaction();
+
+			NativeQuery<Iva> s = session.createNativeQuery("UPDATE Iva SET descrizione = :descrizione AND aliquota = :aliquota WHERE id = :id",
+					Iva.class);
+
+			s.setParameter("descrizione", descrizione);
+			s.setParameter("aliquota", aliquota);
+			s.setParameter("id", id);
+			s.executeUpdate();
+
+			transaction.commit();
+
+			session.close();
+
+		} catch (ConstraintViolationException e) {
+
+			System.out.println("Valore di chiave primaria duplicato per la tabella Iva");
+			e.printStackTrace();
+			transaction.rollback();
+
+		} catch (HibernateException e) {
+
+			System.out.println("Eccezione specifica di Hibernate durante la query");
+			e.printStackTrace();
+			transaction.rollback();
+
+		} catch (Exception e) {
+
+			System.out.println("Eccezione generica");
+			e.printStackTrace();
+			transaction.rollback();
+
+		}
+
+	}
+
 }

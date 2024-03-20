@@ -12,54 +12,65 @@ import entity.Iva;
 
 public class Main {
 
-    public static void main(String[] args) {
-        
-        List<Iva> listaIva = new ArrayList<>();
+	public static void main(String[] args) {
 
-        listaIva.add(new Iva(0, "Bollo", 20.0));
-        listaIva.add(new Iva(1, "Alimentare", 22.0));
-        listaIva.add(new Iva(2, "Medica", 15.0));
-        listaIva.add(new Iva(3, "Fiscale", 22.0));
-        listaIva.add(new Iva(4, "Imposta", 5.0));
+		List<FamAssort> listAssort = new ArrayList<>();
+		List<Iva> listaIva = new ArrayList<>();
+		List<Articolo> listaArticoli = new ArrayList<>();
 
-        IvaDaoImpl ivaDao = new IvaDaoImpl();
+		listaIva.add(new Iva(0, "Bollo", 20.0));
+		listaIva.add(new Iva(1, "Alimentare", 22.0));
+		listaIva.add(new Iva(2, "Medica", 15.0));
+		listaIva.add(new Iva(3, "Fiscale", 22.0));
+		listaIva.add(new Iva(4, "Imposta", 5.0));
 
-        ivaDao.insertMany(listaIva);
+		listAssort.add(new FamAssort(1, "Spesa1"));
+		listAssort.add(new FamAssort(1, "Spesa2"));
+		listAssort.add(new FamAssort(1, "Spesa3"));
+		listAssort.add(new FamAssort(1, "Spesa4"));
+		listAssort.add(new FamAssort(1, "Spesa5"));
+		
+		listaArticoli.add(new Articolo(1, "Pane", listAssort.get(0), listaIva.get(0)));
+		listaArticoli.add(new Articolo(2, "Sapone", listAssort.get(1), listaIva.get(1)));
+		listaArticoli.add(new Articolo(3, "Acqua", listAssort.get(2), listaIva.get(2)));
+		listaArticoli.add(new Articolo(4, "Coperta", listAssort.get(3), listaIva.get(3)));
+		listaArticoli.add(new Articolo(5, "Scarpe", listAssort.get(4), listaIva.get(4)));
+		
+		listaIva.get(0).setListaArticoli(listaArticoli);
+		listaIva.get(1).setListaArticoli(listaArticoli);
+		listaIva.get(2).setListaArticoli(listaArticoli);
+		listaIva.get(3).setListaArticoli(listaArticoli);
+		listaIva.get(4).setListaArticoli(listaArticoli);
+		
+		listAssort.get(0).setListaArticoli(listaArticoli);
+		listAssort.get(1).setListaArticoli(listaArticoli);
+		listAssort.get(2).setListaArticoli(listaArticoli);
+		listAssort.get(3).setListaArticoli(listaArticoli);
+		listAssort.get(4).setListaArticoli(listaArticoli);
 
-        List<Articolo> listaArticoli = new ArrayList<>();
+		IvaDaoImpl ivaDao = new IvaDaoImpl();
 
-        listaArticoli.add(new Articolo("1", "Pane"));
-        listaArticoli.add(new Articolo("2", "Sapone"));
-        listaArticoli.add(new Articolo("3", "Acqua"));
-        listaArticoli.add(new Articolo("4", "Coperta"));
-        listaArticoli.add(new Articolo("5", "Scarpe"));
+		FamAssortDaoImpl famAssortDao = new FamAssortDaoImpl();
 
-        ArticoloDaoImpl articoloDao = new ArticoloDaoImpl();
+		ArticoloDaoImpl articoloDao = new ArticoloDaoImpl();
 
-        articoloDao.insertMany(listaArticoli);
+		famAssortDao.insertMany(listAssort);
 
-        List<FamAssort> listAssort = new ArrayList<>();
+		articoloDao.insertMany(listaArticoli);
+		
+		ivaDao.insertMany(listaIva);
 
-        listAssort.add(new FamAssort(1, "Spesa1"));
-        listAssort.add(new FamAssort(1, "Spesa2"));
-        listAssort.add(new FamAssort(1, "Spesa3"));
-        listAssort.add(new FamAssort(1, "Spesa4"));
-        listAssort.add(new FamAssort(1, "Spesa5"));
+		
+		/*System.out.println(articoloDao.findAll());
 
-        FamAssortDaoImpl famAssortDao = new FamAssortDaoImpl();
+		System.out.println("------------------------------------------------------------");
 
-        famAssortDao.insertMany(listAssort);
+		System.out.println(ivaDao.findOne(3));
 
-        System.out.println(articoloDao.findAll());
+		System.out.println("-------------------------------------------------------------");
 
-        System.out.println("------------------------------------------------------------");
+		System.out.println(famAssortDao.findAll());*/
 
-        System.out.println(ivaDao.findOne(3));
+	}
 
-        System.out.println("-------------------------------------------------------------");
-
-        System.out.println(famAssortDao.findAll());
-
-    }
-    
 }

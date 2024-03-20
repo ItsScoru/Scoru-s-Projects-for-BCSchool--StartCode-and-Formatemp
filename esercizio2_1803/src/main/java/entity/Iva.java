@@ -1,7 +1,9 @@
 package entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,9 +17,9 @@ import javax.persistence.Table;
 public class Iva {
 
     @Id
-    @Column(name = "id")
+    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idIva;
+    private int id;
 
     @Column
     private String descrizione;
@@ -25,32 +27,27 @@ public class Iva {
     @Column
     private double aliquota;
 
-    @OneToMany(mappedBy = "cod_articoli")
+    @OneToMany(mappedBy = "codice_articolo", cascade = CascadeType.ALL)
     private List<Articolo> listaArticoli;
 
     public Iva() {
         super();
+        this.listaArticoli = new ArrayList<>();
     }
 
-    public Iva(int idIva, String descrizione, double aliquota) {
-        this.idIva = idIva;
+    public Iva(int id, String descrizione, double aliquota) {
+        this.id = id;
         this.descrizione = descrizione;
         this.aliquota = aliquota;
+        this.listaArticoli = new ArrayList<>();
     }
 
-    public Iva(int idIva, String descrizione, double aliquota, List<Articolo> listaArticoli) {
-        this.idIva = idIva;
-        this.descrizione = descrizione;
-        this.aliquota = aliquota;
-        this.listaArticoli = listaArticoli;
+    public int getId() {
+        return id;
     }
 
-    public int getIdIva() {
-        return idIva;
-    }
-
-    public void setIdIva(int idIva) {
-        this.idIva = idIva;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDescrizione() {
@@ -79,7 +76,7 @@ public class Iva {
 
     @Override
     public String toString() {
-        return "Iva [idIva=" + idIva + ", descrizione=" + descrizione + ", aliquota=" + aliquota + "]";
+        return "Iva [id=" + id + ", descrizione=" + descrizione + ", aliquota=" + aliquota + "]";
     }
     
 }

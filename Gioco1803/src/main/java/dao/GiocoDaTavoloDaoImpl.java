@@ -164,7 +164,7 @@ public class GiocoDaTavoloDaoImpl implements InterfacciaDao<GiocoDaTavolo> {
 
 	}
 
-	public void updateName(int id, String nome) {
+	public void updateName(String nomeVecchio, String nomeNuovo) {
 
 		Transaction transaction = null;
 
@@ -176,10 +176,10 @@ public class GiocoDaTavoloDaoImpl implements InterfacciaDao<GiocoDaTavolo> {
 			transaction = session.beginTransaction();
 
 			NativeQuery<GiocoDaTavolo> s = session
-					.createNativeQuery("UPDATE GiocoDaTavolo SET nome = :nome WHERE id = :id", GiocoDaTavolo.class);
+					.createNativeQuery("UPDATE GiocoDaTavolo SET nome = :nome WHERE nome = :nome", GiocoDaTavolo.class);
 
-			s.setParameter("nome", nome);
-			s.setParameter("id", id);
+			s.setParameter("nome", nomeVecchio);
+			s.setParameter("nome", nomeNuovo);
 			s.executeUpdate();
 
 			transaction.commit();
@@ -208,7 +208,7 @@ public class GiocoDaTavoloDaoImpl implements InterfacciaDao<GiocoDaTavolo> {
 
 	}
 
-	public void updateFull(int id, String nome, String casaProduttrice, int numMinGiocatori, int numMaxGiocatori,
+	public void updateFull(String nomeVecchio, String nome, String casaProduttrice, int numMinGiocatori, int numMaxGiocatori,
 			int etaMin) {
 
 		Transaction transaction = null;
@@ -222,7 +222,7 @@ public class GiocoDaTavoloDaoImpl implements InterfacciaDao<GiocoDaTavolo> {
 
 			NativeQuery<GiocoDaTavolo> s = session.createNativeQuery("UPDATE GiocoDaTavolo SET nome = :nome"
 					+ " AND casa_produttrice = :casaProduttrice AND num_min_giocatori = :numMinGiocatori"
-					+ " AND num_max_giocatori = :numMaxGiocatori AND eta_minima = :etaMinima" + " WHERE id = :id",
+					+ " AND num_max_giocatori = :numMaxGiocatori AND eta_minima = :etaMinima" + " WHERE nome = :nome",
 					GiocoDaTavolo.class);
 
 			s.setParameter("nome", nome);
@@ -230,7 +230,7 @@ public class GiocoDaTavoloDaoImpl implements InterfacciaDao<GiocoDaTavolo> {
 			s.setParameter("numMinGiocatori", numMinGiocatori);
 			s.setParameter("numMaxGiocatori", numMaxGiocatori);
 			s.setParameter("etaMin", etaMin);
-			s.setParameter("id", id);
+			s.setParameter("nome", nomeVecchio);
 			s.executeUpdate();
 
 			transaction.commit();

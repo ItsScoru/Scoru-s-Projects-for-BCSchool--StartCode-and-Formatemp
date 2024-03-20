@@ -47,18 +47,24 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="Esercizio1_1903"/>
+			<item value="esempioEmbeddable"/>
 			<item value="Gioco1803"/>
 			<item value="Esercitazione15_03_EsercizioD"/>
 			<item value="Esercitazione15_03_EsercizioC"/>
 			<item value="esempiohibernate"/>
 		</list>
 		<list key="name">
+			<item value="Esercizio1_1903"/>
+			<item value="esempioEmbeddable"/>
 			<item value="Gioco1803"/>
 			<item value="Esercitazione15_03_EsercizioD"/>
 			<item value="Esercitazione15_03_EsercizioC"/>
 			<item value="esempiohibernate"/>
 		</list>
 		<list key="artifactId">
+			<item value="Esercizio1_1903"/>
+			<item value="esempioEmbeddable"/>
 			<item value="Gioco1803"/>
 			<item value="Esercitazione15_03_EsercizioD"/>
 			<item value="Esercitazione15_03_EsercizioC"/>

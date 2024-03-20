@@ -1,11 +1,11 @@
 package entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -16,7 +16,6 @@ public class GiocoDaTavolo {
 
     @Id
     @Column
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String nome;
 
     @Column(name = "casa_produttrice")
@@ -31,11 +30,12 @@ public class GiocoDaTavolo {
     @Column(name = "eta_minima")
     private int etaMinima;
 
-    @OneToMany(mappedBy = "id")
+    @OneToMany(mappedBy = "ttg", cascade = CascadeType.ALL)
     List<Partecipante> listaGiocatori;
 
     public GiocoDaTavolo() {
         super();
+        this.listaGiocatori = new ArrayList<>();
     }
 
     public GiocoDaTavolo(String nome, String casaProduttrice, int numeroMinGiocatori, int numeroMacGiocatori,
@@ -45,16 +45,7 @@ public class GiocoDaTavolo {
         this.numeroMinGiocatori = numeroMinGiocatori;
         this.numeroMacGiocatori = numeroMacGiocatori;
         this.etaMinima = etaMinima;
-    }
-
-    public GiocoDaTavolo(String nome, String casaProduttrice, int numeroMinGiocatori, int numeroMacGiocatori,
-            int etaMinima, List<Partecipante> listaGiocatori) {
-        this.nome = nome;
-        this.casaProduttrice = casaProduttrice;
-        this.numeroMinGiocatori = numeroMinGiocatori;
-        this.numeroMacGiocatori = numeroMacGiocatori;
-        this.etaMinima = etaMinima;
-        this.listaGiocatori = listaGiocatori;
+        this.listaGiocatori = new ArrayList<>();
     }
 
     public String getNome() {

@@ -14,12 +14,12 @@ import org.hibernate.query.Query;
 import configuration.HibernateUtil;
 import entity.Articolo;
 
-public class ArticoloDaoImpl implements InterfacciaDao<Articolo>{
+public class ArticoloDaoImpl implements InterfacciaDao<Articolo> {
 
-    @Override
-    public List<Articolo> findAll() {
+	@Override
+	public List<Articolo> findAll() {
 
-        List<Articolo> listaArticoli = new ArrayList<>();
+		List<Articolo> listaArticoli = new ArrayList<>();
 
 		try {
 
@@ -44,20 +44,20 @@ public class ArticoloDaoImpl implements InterfacciaDao<Articolo>{
 
 		return listaArticoli;
 
-    }
+	}
 
-    @Override
-    public Articolo findOne(int id) {
+	@Override
+	public Articolo findOne(int codArt) {
 
-        Articolo articolo = null;
+		Articolo articolo = null;
 
 		try {
 
 			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 			Session session = sessionFactory.openSession();
 
-			Query<Articolo> query = session.createQuery("from Articolo where id = :id", Articolo.class);
-			query.setParameter("id", id);
+			Query<Articolo> query = session.createQuery("from Articolo where codice_articolo= :codArt", Articolo.class);
+			query.setParameter("codArt", codArt);
 			articolo = query.getSingleResult();
 
 			session.close();
@@ -76,10 +76,10 @@ public class ArticoloDaoImpl implements InterfacciaDao<Articolo>{
 
 		return articolo;
 
-    }
+	}
 
-    @Override
-    public void insertMany(List<Articolo> listaArticoli) {
+	@Override
+	public void insertMany(List<Articolo> listaArticoli) {
 
 		Transaction transaction = null;
 
@@ -118,10 +118,10 @@ public class ArticoloDaoImpl implements InterfacciaDao<Articolo>{
 
 		}
 
-    }
+	}
 
-    @Override
-    public void update(int id, String nome) {
+	@Override
+	public void update(int codArt, String descrizione) {
 
 		Transaction transaction = null;
 
@@ -132,10 +132,11 @@ public class ArticoloDaoImpl implements InterfacciaDao<Articolo>{
 
 			transaction = session.beginTransaction();
 
-			NativeQuery<Articolo> s = session.createNativeQuery("UPDATE Articolo SET nome = :nome WHERE id = :id", Articolo.class);
+			NativeQuery<Articolo> s = session.createNativeQuery(
+					"UPDATE Articolo SET descrizione = :descrizioneWHERE codice_articolo = :codArt", Articolo.class);
 
-			s.setParameter("nome", nome);
-			s.setParameter("id", id);
+			s.setParameter("descrizione", descrizione);
+			s.setParameter("codArt", codArt);
 			s.executeUpdate();
 
 			transaction.commit();
@@ -162,10 +163,10 @@ public class ArticoloDaoImpl implements InterfacciaDao<Articolo>{
 
 		}
 
-    }
+	}
 
-    @Override
-    public void delete(int id) {
+	@Override
+	public void delete(int codArt) {
 
 		Transaction transaction = null;
 
@@ -176,9 +177,9 @@ public class ArticoloDaoImpl implements InterfacciaDao<Articolo>{
 
 			transaction = session.beginTransaction();
 
-			NativeQuery<Articolo> s = session.createNativeQuery("DELETE FROM Articolo WHERE id = :id", Articolo.class);
+			NativeQuery<Articolo> s = session.createNativeQuery("DELETE FROM Articolo WHERE codArt = :codArt", Articolo.class);
 
-			s.setParameter("id", id);
+			s.setParameter("codArt", codArt);
 			s.executeUpdate();
 
 			transaction.commit();
@@ -205,6 +206,6 @@ public class ArticoloDaoImpl implements InterfacciaDao<Articolo>{
 
 		}
 
-    }
-    
+	}
+
 }

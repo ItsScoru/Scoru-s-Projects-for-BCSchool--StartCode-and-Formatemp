@@ -121,7 +121,7 @@ public class FamAssortDaoImpl implements InterfacciaDao<FamAssort>{
     }
 
     @Override
-    public void update(int id, String nome) {
+    public void update(int id, String descrizione) {
 
         Transaction transaction = null;
 
@@ -132,9 +132,9 @@ public class FamAssortDaoImpl implements InterfacciaDao<FamAssort>{
 
 			transaction = session.beginTransaction();
 
-			NativeQuery<FamAssort> s = session.createNativeQuery("UPDATE FamAssort SET nome = :nome WHERE id = :id", FamAssort.class);
+			NativeQuery<FamAssort> s = session.createNativeQuery("UPDATE FamAssort SET descrizione = :descrizione WHERE id = :id", FamAssort.class);
 
-			s.setParameter("nome", nome);
+			s.setParameter("descrizione", descrizione);
 			s.setParameter("id", id);
 			s.executeUpdate();
 

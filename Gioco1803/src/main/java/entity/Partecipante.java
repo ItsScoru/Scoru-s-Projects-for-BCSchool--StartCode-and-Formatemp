@@ -28,7 +28,7 @@ public class Partecipante {
     private int eta;
 
     @ManyToOne
-    @JoinColumn(name = "nome_gioco")
+    @JoinColumn(name = "nome_gioco", referencedColumnName = "nome")
     private GiocoDaTavolo ttg;
 
     public Partecipante() {

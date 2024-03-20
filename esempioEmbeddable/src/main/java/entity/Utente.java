@@ -35,7 +35,6 @@ public class Utente {
 
 	public Utente(String nome, String cognome, String email, Indirizzo indirizzo) {
 		super();
-		this.id = id;
 		this.nome = nome;
 		this.cognome = cognome;
 		this.email = email;

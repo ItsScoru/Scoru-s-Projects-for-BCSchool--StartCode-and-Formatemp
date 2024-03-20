@@ -16,13 +16,11 @@ public class Main {
 
         listaGiochi.add(new GiocoDaTavolo("Monopoli", "Hasbro", 3, 6, 8));
         listaGiochi.add(new GiocoDaTavolo("Risiko", "Hasbro", 4, 6, 12));
-        listaGiochi.add(new GiocoDaTavolo("Perudo", "Asmodee", 4, 12, 12));
+        listaGiochi.add(new GiocoDaTavolo("Perudo", "Asmodee", 4, 12, 8));
         listaGiochi.add(new GiocoDaTavolo("Zombicide", "Guillotine games", 1, 6, 12));
         listaGiochi.add(new GiocoDaTavolo("Uno", "Mattel", 2, 8, 6));
 
         GiocoDaTavoloDaoImpl ttgDao = new GiocoDaTavoloDaoImpl();
-
-        ttgDao.insertMany(listaGiochi);
 
         List<Partecipante> listaGiocatori = new ArrayList<>();
 
@@ -39,6 +37,8 @@ public class Main {
 
         PartecipanteDaoImpl partecipanteDao = new PartecipanteDaoImpl();
 
+        ttgDao.insertMany(listaGiochi);
+        
         partecipanteDao.insertMany(listaGiocatori);
 
     }
