@@ -10,7 +10,6 @@ import org.hibernate.service.ServiceRegistry;
 
 import entity.Acquirente;
 import entity.Ordine;
-//import entity.Residenza;
 
 public class HibernateUtil {
 
@@ -34,7 +33,6 @@ public class HibernateUtil {
 			configuration.setProperties(settings);
 
 			configuration.addAnnotatedClass(Ordine.class);
-			//configuration.addAnnotatedClass(Residenza.class);
 			configuration.addAnnotatedClass(Acquirente.class);
 
 			ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()

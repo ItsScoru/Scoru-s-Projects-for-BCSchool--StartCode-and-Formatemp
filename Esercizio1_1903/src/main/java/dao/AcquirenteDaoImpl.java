@@ -87,8 +87,7 @@ public class AcquirenteDaoImpl implements InterfacciaDao<Acquirente> {
 
     }
 
-    @Override
-    public void delete(int id) {
+    public void delete(String codice_fiscale) {
 
         Transaction transaction = null;
 
@@ -99,10 +98,10 @@ public class AcquirenteDaoImpl implements InterfacciaDao<Acquirente> {
 
             transaction = session.beginTransaction();
 
-            NativeQuery<Acquirente> nq = session.createNativeQuery("DELETE FROM Acquirente WHERE id = :id",
+            NativeQuery<Acquirente> nq = session.createNativeQuery("DELETE FROM Acquirente WHERE codice_fiscale = :codice_fiscale",
                     Acquirente.class);
 
-            nq.setParameter("id", id);
+            nq.setParameter("codice_fiscale", codice_fiscale);
             nq.executeUpdate();
 
             transaction.commit();
@@ -142,12 +141,8 @@ public class AcquirenteDaoImpl implements InterfacciaDao<Acquirente> {
 
             transaction = session.beginTransaction();
 
-            NativeQuery<Acquirente> nq = session.createNativeQuery("UPDATE Acquirente SET tel = :num WHERE id = :id",
-                    Acquirente.class);
-
-            nq.setParameter("num", num);
-            nq.setParameter("id", id);
-            nq.executeUpdate();
+            Acquirente aq = session.find(Acquirente.class, id);
+            aq.setTel(num);
 
             transaction.commit();
 
@@ -172,6 +167,45 @@ public class AcquirenteDaoImpl implements InterfacciaDao<Acquirente> {
 			transaction.rollback();
 
 		}
+
+    }
+    
+    public void insert(Acquirente ogg) {
+
+        Transaction transaction = null;
+
+        try {
+
+            SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+            Session session = sessionFactory.openSession();
+
+            transaction = session.beginTransaction();
+
+            session.save(ogg);
+
+            transaction.commit();
+
+            session.close();
+
+        } catch (ConstraintViolationException e) {
+
+            System.out.println("Valore di chiave primaria duplicato per la tabella Acquirente");
+            e.printStackTrace();
+            transaction.rollback();
+
+        } catch (HibernateException e) {
+
+            System.out.println("Eccezione specifica di Hibernate durante la query");
+            e.printStackTrace();
+            transaction.rollback();
+
+        } catch (Exception e) {
+
+            System.out.println("Eccezione generica");
+            e.printStackTrace();
+            transaction.rollback();
+
+        }
 
     }
 

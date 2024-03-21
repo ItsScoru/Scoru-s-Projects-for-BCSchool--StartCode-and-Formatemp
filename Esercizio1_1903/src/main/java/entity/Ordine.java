@@ -33,19 +33,17 @@ public class Ordine {
     private int numeroArticoli;
 
     @ManyToOne
-    @JoinColumn(name = "id_acquirente", referencedColumnName = "id_acquirente")
+    @JoinColumn(name = "fk_acquirente", referencedColumnName = "codice_fiscale")
     private Acquirente acquirente;
 
     public Ordine() {
         super();
     }
 
-    public Ordine(int id, Date dataRichiesta, int prezzoTotale, int numeroArticoli, Acquirente acquirente) {
-        this.id = id;
-        this.dataRichiesta = dataRichiesta;
+    public Ordine(Date dataRichiesta, int prezzoTotale, int numeroArticoli) {
+       this.dataRichiesta = dataRichiesta;
         this.prezzoTotale = prezzoTotale;
         this.numeroArticoli = numeroArticoli;
-        this.acquirente = acquirente;
     }
 
     public int getId() {
@@ -91,7 +89,7 @@ public class Ordine {
     @Override
     public String toString() {
         return "Ordine [id=" + id + ", dataRichiesta=" + dataRichiesta + ", prezzoTotale=" + prezzoTotale
-                + ", numeroArticoli=" + numeroArticoli + ", acquirente=" + acquirente + "]";
+                + ", numeroArticoli=" + numeroArticoli + "]";
     }
 
 }

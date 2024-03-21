@@ -52,26 +52,23 @@ public class Parco {
 	private boolean giardinoBotanico;
 	
 	@ManyToOne
-	@JoinColumn(name = "parco", referencedColumnName = "id")
+	@JoinColumn(name = "fk_città", referencedColumnName = "codice")
 	private Città città;
 
 	public Parco() {
 		super();
 	}
 
-	public Parco(int id, String nome, int ettari, int numeroAlberi) {
+	public Parco(String nome, int ettari, int numeroAlberi) {
 		super();
-		this.id = id;
 		this.nome = nome;
 		this.ettari = ettari;
 		this.numeroAlberi = numeroAlberi;
 	}
 
-	public Parco(int id, String nome, int ettari, int numeroAlberi, boolean lago, boolean velodromo,
-			boolean parcoGiochi, boolean zoo, boolean campoBocce, boolean campoGolf, boolean giardinoBotanico,
-			Città città) {
+	public Parco(String nome, int ettari, int numeroAlberi, boolean lago, boolean velodromo,
+			boolean parcoGiochi, boolean zoo, boolean campoBocce, boolean campoGolf, boolean giardinoBotanico) {
 		super();
-		this.id = id;
 		this.nome = nome;
 		this.ettari = ettari;
 		this.numeroAlberi = numeroAlberi;
@@ -82,7 +79,6 @@ public class Parco {
 		this.campoBocce = campoBocce;
 		this.campoGolf = campoGolf;
 		this.giardinoBotanico = giardinoBotanico;
-		this.città = città;
 	}
 
 	public int getId() {

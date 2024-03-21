@@ -17,7 +17,7 @@ import javax.persistence.Table;
 public class Città {
 	
 	@Id
-	@Column(name = "id")
+	@Column
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codice;
 	
@@ -38,13 +38,12 @@ public class Città {
 		this.listaParchi = new ArrayList<>();
 	}
 
-	public Città(int codice, String nome, String stato, int numeroAbitanti, List<Parco> listaParchi) {
+	public Città (String nome, String stato, int numeroAbitanti) {
 		super();
-		this.codice = codice;
 		this.nome = nome;
 		this.stato = stato;
 		this.numeroAbitanti = numeroAbitanti;
-		this.listaParchi = listaParchi;
+		this.listaParchi = new ArrayList<>();
 	}
 
 	public int getCodice() {

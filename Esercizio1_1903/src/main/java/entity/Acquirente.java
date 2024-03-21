@@ -8,7 +8,6 @@ import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -17,23 +16,20 @@ import javax.persistence.Table;
 public class Acquirente {
 
     @Id
-    @Column(name = "id_acquirente")
+    @Column(name = "codice_fiscale")
     private String codiceFiscale;
 
-    @Column
     private String nome;
 
-    @Column
     private String cognome;
 
-    @Column
     private String tel;
 
     @Embedded
     private Residenza residenza;
 
     @OneToMany(mappedBy = "acquirente", cascade = CascadeType.ALL)
-    List<Ordine> listaOrdini;
+    private List<Ordine> listaOrdini;
 
     public Acquirente() {
         super();

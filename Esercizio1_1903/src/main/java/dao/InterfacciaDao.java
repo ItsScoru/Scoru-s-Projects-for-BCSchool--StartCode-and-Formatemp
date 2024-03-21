@@ -7,7 +7,5 @@ public interface InterfacciaDao<T> {
     public void insertMany(List<T> lista);
 
     public List<T> findAll();
-
-    public void delete(int id);
     
 }
