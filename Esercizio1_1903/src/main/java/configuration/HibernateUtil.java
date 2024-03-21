@@ -8,6 +8,10 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
+import entity.Acquirente;
+import entity.Ordine;
+//import entity.Residenza;
+
 public class HibernateUtil {
 
 	private static SessionFactory sessionFactory;
@@ -29,8 +33,9 @@ public class HibernateUtil {
 
 			configuration.setProperties(settings);
 
-			//configuration.addAnnotatedClass(GiocoDaTavolo.class);
-			//configuration.addAnnotatedClass(Partecipante.class);
+			configuration.addAnnotatedClass(Ordine.class);
+			//configuration.addAnnotatedClass(Residenza.class);
+			configuration.addAnnotatedClass(Acquirente.class);
 
 			ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 					.applySettings(configuration.getProperties()).build();

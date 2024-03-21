@@ -3,12 +3,12 @@ package entity;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -27,19 +27,18 @@ public class Iva {
     @Column
     private double aliquota;
 
-    @OneToMany(mappedBy = "codice_articolo", cascade = CascadeType.ALL)
+    @OneToMany
+    @JoinColumn(name = "id_iva")
     private List<Articolo> listaArticoli;
 
     public Iva() {
         super();
-        this.listaArticoli = new ArrayList<>();
     }
 
     public Iva(int id, String descrizione, double aliquota) {
         this.id = id;
         this.descrizione = descrizione;
         this.aliquota = aliquota;
-        this.listaArticoli = new ArrayList<>();
     }
 
     public int getId() {

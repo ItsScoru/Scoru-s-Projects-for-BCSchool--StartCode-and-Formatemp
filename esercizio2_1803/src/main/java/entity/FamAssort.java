@@ -3,12 +3,12 @@ package entity;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -17,25 +17,24 @@ import javax.persistence.Table;
 public class FamAssort {
 
 	@Id
-	@Column
+	@Column(name = "id_famassort")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	@Column
 	private String descrizione;
 
-	@OneToMany(mappedBy = "codice_articolo", cascade = CascadeType.ALL)
+	@OneToMany
+	@JoinColumn(name = "id_famassort")
 	private List<Articolo> listaArticoli;
 
 	public FamAssort() {
 		super();
-		this.listaArticoli = new ArrayList<>();
 	}
 
 	public FamAssort(int id, String descrizione) {
 		this.id = id;
 		this.descrizione = descrizione;
-		this.listaArticoli = new ArrayList<>();
 	}
 
 	public int getId() {
@@ -61,6 +60,8 @@ public class FamAssort {
 	public void setListaArticoli(List<Articolo> listaArticoli) {
 		this.listaArticoli = listaArticoli;
 	}
+	
+	//addArticoloToLista
 
 	@Override
 	public String toString() {

@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="C:\Users\fabri\Desktop\EclipseSPRING\Scoru-s-Projects-for-BCSchool--StartCode-and-Formatemp\SpringXML"/>
 			<item value="C:\Users\fabri\Desktop\EclipseSPRING\Scoru-s-Projects-for-BCSchool--StartCode-and-Formatemp\Esercitazione15_03_EsercizioD"/>
 			<item value="C:\Users\fabri\Desktop\EclipseSPRING\Scoru-s-Projects-for-BCSchool--StartCode-and-Formatemp\Esercitazione15_03_EsercizioC"/>
 			<item value="C:\Users\fabri\Desktop\EclipseSPRING\Scoru-s-Projects-for-BCSchool--StartCode-and-Formatemp\Esercitazione15_03_EsercizioB"/>
@@ -47,6 +48,9 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="Esercizio2_1903"/>
+			<item value="esempio"/>
+			<item value="SpringXML"/>
 			<item value="Esercizio1_1903"/>
 			<item value="esempioEmbeddable"/>
 			<item value="Gioco1803"/>
@@ -55,6 +59,9 @@
 			<item value="esempiohibernate"/>
 		</list>
 		<list key="name">
+			<item value="Esercizio2_1903"/>
+			<item value="esempioIOC"/>
+			<item value="SpringXML"/>
 			<item value="Esercizio1_1903"/>
 			<item value="esempioEmbeddable"/>
 			<item value="Gioco1803"/>
@@ -63,6 +70,9 @@
 			<item value="esempiohibernate"/>
 		</list>
 		<list key="artifactId">
+			<item value="Esercizio2_1903"/>
+			<item value="ioc"/>
+			<item value="SpringXML"/>
 			<item value="Esercizio1_1903"/>
 			<item value="esempioEmbeddable"/>
 			<item value="Gioco1803"/>

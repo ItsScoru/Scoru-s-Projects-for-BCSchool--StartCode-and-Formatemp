@@ -146,15 +146,32 @@ public class AcquirenteDaoImpl implements InterfacciaDao<Acquirente> {
                     Acquirente.class);
 
             nq.setParameter("num", num);
+            nq.setParameter("id", id);
             nq.executeUpdate();
 
             transaction.commit();
 
             session.close();
 
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
+        } catch (ConstraintViolationException e) {
+
+			System.out.println("Valore di chiave primaria duplicato per la tabella Aquirente");
+			e.printStackTrace();
+			transaction.rollback();
+
+		} catch (HibernateException e) {
+
+			System.out.println("Eccezione specifica di Hibernate durante la query");
+			e.printStackTrace();
+			transaction.rollback();
+
+		} catch (Exception e) {
+
+			System.out.println("Eccezione generica");
+			e.printStackTrace();
+			transaction.rollback();
+
+		}
 
     }
 

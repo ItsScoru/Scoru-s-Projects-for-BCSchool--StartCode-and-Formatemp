@@ -28,9 +28,9 @@ public class OrdineDaoImpl implements InterfacciaDao<Ordine> {
 
             transaction = session.beginTransaction();
 
-            for (Ordine x : lista) {
-                session.save(x);
-            }
+			for (Ordine x : lista) {
+				session.save(x);
+			}
 
             transaction.commit();
 

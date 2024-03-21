@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -31,7 +32,7 @@ public class Acquirente {
     @Embedded
     private Residenza residenza;
 
-    @OneToMany(mappedBy = "id_ordine", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "acquirente", cascade = CascadeType.ALL)
     List<Ordine> listaOrdini;
 
     public Acquirente() {

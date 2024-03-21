@@ -1,0 +1,13 @@
+2.Creare una classe Città avente gli attributi codice, nome, stato, numeroAbitanti, i metodi get/set
+e l’override del metodo toString(). Creare una classe Parco avente gli attributi id, nome, ettari,
+numeroAlberi, lago (di tipo booleano), velodromo (di tipo booleano), parcoGiochi (di tipo
+booleano), zoo (di tipo booleano), campoBocce (di tipo booleano), campoGolf (di tipo booleano),
+giardinoBotanico (di tipo booleano). In particolare, lago, velodromo, parcoGiochi, zoo,
+campoBocce, campoGolf e giardinoBotanico dovranno essere mappati automaticamente
+all’interno di una seconda tabella chiamata attrazioni_parco.
+Mappare le entità sul DB mediante l’utilizzo di Hibernate, tenendo conto che una Città può
+possedere uno o più Parchi e che un Parco è posseduto da una sola Città (associazione One-to-
+Many). Implementare il metodo che salva le istanze sul DB, il metodo che legge le istanze dal DB,
+il metodo che cancella una determinata istanza mediante pk ed il metodo che aggiorna il nome
+della citt
+à o del parco.

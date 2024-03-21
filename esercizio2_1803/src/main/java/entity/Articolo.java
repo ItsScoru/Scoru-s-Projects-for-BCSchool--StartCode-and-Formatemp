@@ -22,11 +22,11 @@ public class Articolo {
     private String descrizione;
 
     @ManyToOne
-    @JoinColumn(name = "fam_assort", referencedColumnName = "id")
+    @JoinColumn(name = "id_famassort")
     private FamAssort famAssort;
 
     @ManyToOne
-    @JoinColumn(name = "id_iva", referencedColumnName = "id")
+    @JoinColumn(name = "id_iva")
     private Iva idIva;
 
     public Articolo() {

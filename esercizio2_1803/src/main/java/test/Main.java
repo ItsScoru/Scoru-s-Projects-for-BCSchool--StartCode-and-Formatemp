@@ -18,17 +18,17 @@ public class Main {
 		List<Iva> listaIva = new ArrayList<>();
 		List<Articolo> listaArticoli = new ArrayList<>();
 
-		listaIva.add(new Iva(0, "Bollo", 20.0));
-		listaIva.add(new Iva(1, "Alimentare", 22.0));
-		listaIva.add(new Iva(2, "Medica", 15.0));
-		listaIva.add(new Iva(3, "Fiscale", 22.0));
-		listaIva.add(new Iva(4, "Imposta", 5.0));
+		listaIva.add(new Iva(1, "Bollo", 20.0));
+		listaIva.add(new Iva(2, "Alimentare", 22.0));
+		listaIva.add(new Iva(3, "Medica", 15.0));
+		listaIva.add(new Iva(4, "Fiscale", 22.0));
+		listaIva.add(new Iva(5, "Imposta", 5.0));
 
 		listAssort.add(new FamAssort(1, "Spesa1"));
-		listAssort.add(new FamAssort(1, "Spesa2"));
-		listAssort.add(new FamAssort(1, "Spesa3"));
-		listAssort.add(new FamAssort(1, "Spesa4"));
-		listAssort.add(new FamAssort(1, "Spesa5"));
+		listAssort.add(new FamAssort(2, "Spesa2"));
+		listAssort.add(new FamAssort(3, "Spesa3"));
+		listAssort.add(new FamAssort(4, "Spesa4"));
+		listAssort.add(new FamAssort(5, "Spesa5"));
 		
 		listaArticoli.add(new Articolo(1, "Pane", listAssort.get(0), listaIva.get(0)));
 		listaArticoli.add(new Articolo(2, "Sapone", listAssort.get(1), listaIva.get(1)));
@@ -59,6 +59,8 @@ public class Main {
 		articoloDao.insertMany(listaArticoli);
 		
 		ivaDao.insertMany(listaIva);
+		
+		
 
 		
 		/*System.out.println(articoloDao.findAll());
