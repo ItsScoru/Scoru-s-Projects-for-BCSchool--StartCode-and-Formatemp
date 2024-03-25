@@ -1,5 +1,6 @@
 {
     "java.project.sourcePaths": [
         "EsercizioC_Esercitazione_15_03"
-    ]
+    ],
+    "java.compile.nullAnalysis.mode": "automatic"
 }
