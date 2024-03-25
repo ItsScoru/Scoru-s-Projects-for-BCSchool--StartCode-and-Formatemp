@@ -1,0 +1,4 @@
+1.Realizzare un progetto Spring che astragga il concetto di ordinazione di una pizza.
+In particolare si vogliano creare due bean Pizza(Rossa e Bianca)e uno Ordinazione.
+Creare due pizze di due tipologie diverse mediante la classe di configurazione e la dependency
+injection.

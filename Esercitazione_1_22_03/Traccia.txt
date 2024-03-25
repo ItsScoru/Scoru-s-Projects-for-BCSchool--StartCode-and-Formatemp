@@ -1,0 +1,8 @@
+1)Creare una classe Capitano avente gli attributi id, nome, cognome, i metodi get/set e l’override
+del metodo toString(). Creare una classe Nave avente gli attributi codice, nome, propulsione (a
+vela, a pale rotanti, a motore, turboelica, ecc.), numeroScialuppe, i metodi get/set e l’override
+del metodo toString(). Mappare le entità sul DB mediante l’utilizzo di Hibernate, tenendo conto
+che un Capitano possiede una sola Nave e che una Nave è posseduta da un solo Capitano
+(associazione One-to-One). Implementare il metodo che salva le istanze sul DB, il metodo che
+legge le istanze dal DB, il metodo che cancella una determinata istanza mediante pk ed il metodo
+che aggiorna il nome del capitano o della nave. L’utilizzo del design pattern DAO è opzionale.

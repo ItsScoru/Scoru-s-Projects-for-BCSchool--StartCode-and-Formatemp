@@ -1,0 +1,12 @@
+3)Creare una classe Videogioco che abbia gli attributi id, nome, prezzo, categoria, descrizione e
+pegi, i metodi get/set e l’override del metodo toString(). Creare una classe Personaggio avente
+gli attributi id, nome, eta, inventario (può essere una semplice stringa), fazione, razza, i metodi
+get/set e l’override del metodo toString(). OPZIONALE: In particolare gli attributi inventario,
+fazione e razza relativi alla classe Personaggio dovranno essere mappati in una seconda tabella
+chiamata dettagli_personaggio e gli attributi categoria e descrizione relativi alla classe
+Videogioco dovranno essere mappati in una seconda tabella chiamata dettagli_videogioco.
+Mappare le entità sul DB mediante l’utilizzo di Hibernate, tenendo conto che un personaggio è
+associato ad un solo videogioco e che un videogioco è associato a più personaggi (associazione
+One-to-Many). Implementare il metodo che salva le istanze sul DB, il metodo che legge le istanze
+dal DB, il metodo che cancella una determinata istanza mediante pk ed il metodo che aggiorna il
+nome del videogioco o del personaggio. L’utilizzo del design pattern DAO è opzionale.

@@ -1,0 +1,14 @@
+2) Creare una classe Partita avente gli attributi codice, data (può essere di tipo String),
+cognomeArbitro, nomeSquadraCasa, nomeSquadraSfidante, i metodi get/set e l’override del
+metodo toString(). In particolare gli attributi cognomeArbitro, nomeSquadraCasa,
+nomeSquadraSfidante dovranno essere mappati all’interno di una seconda tabella chiamata
+dettagli_partita. Creare una classe Stadio avente gli attributi nome (identificativo), capienza, tipo
+(impianto sportivo polivalente, stadio olimpico, stadio di calcio, ecc.), i metodi get/set e
+l’override del metodo toString(). Creare una classe Ubicazione avente gli attributi indirizzo, città
+e cap, i metodi get/set e l’override del metodo toString(). In particolare, quest’ultima classe non
+avrà un identificativo in quanto i suoi attributi devono essere mappati nella tabella relativa allo
+Stadio. Mappare le entità sul DB mediante l’utilizzo di Hibernate, tenendo conto che in uno
+Stadio vengono giocate più partite e che una partita viene giocata in uno Stadio (associazione
+One-toMany). Implementare il metodo che salva le istanze sul DB, il metodo che legge le istanze
+dal DB, il metodo che cancella una determinata istanza mediante pk ed il metodo che aggiorna la
+data di una determinata partita. L’utilizzo del design pattern DAO è opzionale.

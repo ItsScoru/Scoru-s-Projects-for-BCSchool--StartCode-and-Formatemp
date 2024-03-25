@@ -48,6 +48,9 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="Esercitazione_3_22_03"/>
+			<item value="Esercitazione_2_22_03"/>
+			<item value="Esercitazione2203B"/>
 			<item value="Esercizio2_1903"/>
 			<item value="esempio"/>
 			<item value="SpringXML"/>
@@ -59,6 +62,9 @@
 			<item value="esempiohibernate"/>
 		</list>
 		<list key="name">
+			<item value="Esercitazione_3_22_03"/>
+			<item value="Esercitazione_2_22_03"/>
+			<item value="Esercitazione2203B"/>
 			<item value="Esercizio2_1903"/>
 			<item value="esempioIOC"/>
 			<item value="SpringXML"/>
@@ -70,6 +76,9 @@
 			<item value="esempiohibernate"/>
 		</list>
 		<list key="artifactId">
+			<item value="Esercitazione_3_22_03"/>
+			<item value="Esercitazione_2_22_03"/>
+			<item value="Esercitazione2203B"/>
 			<item value="Esercizio2_1903"/>
 			<item value="ioc"/>
 			<item value="SpringXML"/>
