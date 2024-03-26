@@ -1,0 +1,6 @@
+1. Sviluppare un progetto Spring con tutti i componenti che si ritiene necessari per gestire un
+database. Il database dovrà essere composto da due tabelle:
+• Manga
+• Fumetteria
+Individuare la relazione che lega le due entità. Definire i model, le repository ed i controller
+necessari. Infine realizzare una classe che si occupi di popolare il database.

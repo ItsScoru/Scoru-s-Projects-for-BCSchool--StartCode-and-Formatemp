@@ -38,6 +38,8 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="E:\Programmazione\EclipseSPRING\Scoru-s-Projects-for-BCSchool--StartCode-and-Formatemp\livecoding_25_03\springXml"/>
+			<item value="E:\Programmazione\EclipseSPRING\Scoru-s-Projects-for-BCSchool--StartCode-and-Formatemp\livecoding_25_03\primoProgettoSpring\primoProgettoSpring"/>
 			<item value="E:\Programmazione\EclipseSPRING\Scoru-s-Projects-for-BCSchool--StartCode-and-Formatemp\Esercitazione_C_22_03"/>
 			<item value="E:\Programmazione\EclipseSPRING\Scoru-s-Projects-for-BCSchool--StartCode-and-Formatemp\Esercizio_25_03"/>
 			<item value="E:\Programmazione\EclipseSPRING\Scoru-s-Projects-for-BCSchool--StartCode-and-Formatemp\Esercizio25_03"/>

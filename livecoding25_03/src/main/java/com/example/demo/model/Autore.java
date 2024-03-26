@@ -32,6 +32,13 @@ public class Autore {
 		this.cognome = cognome;
 	}
 
+	public Autore(Integer id, String nome, String cognome) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.cognome = cognome;
+	}
+
 	public Integer getId() {
 		return id;
 	}

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head> 
+    <title>Secondo Progetto Spring</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet"></link>
+</head>
+<body>
+	<div class="centrato">
+    	<h3 class="tagTitolo">Esercizio2603</h3>
+    	<p>Lista delle fumetterie trovate:</p>
+    	<div class="tabellaContainer">
+	    	<table class="tabella">
+	    		<thead>
+	        		<tr>
+			            <th>Id</th>
+			            <th>Nome</th>
+			        </tr>
+	    		</thead>
+			    <tbody>
+				<tr th:if="${listaFumetterie.empty}">
+			            <td colspan="2">Non sono state trovate fumetterie.</td>
+			        </tr>
+			        <tr th:each="fumetteria : ${listaFumetterie}">
+			            <td>
+			            	<span th:text="${fumetteria.id}">Id</span>
+			            </td>
+			            <td>
+			            	<span th:text="${fumetteria.nome}">Nome</span>
+			            </td>
+			        </tr>
+			    </tbody>
+			</table>
+		</div>
+		<form action="/">
+			<input type="submit" value="Torna a index" class="btn btn-secondary"/>
+		</form>
+	</div>
+</body>
+</html>
