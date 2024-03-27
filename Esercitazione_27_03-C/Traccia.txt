@@ -1,0 +1,9 @@
+C – Creare una applicazione Spring per gestire i seggi elettorali.
+• I dati delle persone, salvando nome cognome e codice fiscale.
+• I dati dei seggi elettorali, quindi un codice univoco di 4 cifre del seggio, la sede, la città, la
+	provincia e la regione dove è collocato.
+• I dati della tessera elettorale posseduta da una persona, che ha un numero di tessera elettorale
+univoco ed una scadenza. La tessera elettorale consente ad un’unica persona di votare ed il voto
+è possibile in un solo seggio con quella tessera elettorale.
+L’applicazione deve avere tutti i componenti di Spring che ritenete necessari.
+Opzionale: aggiungere le pagine html.

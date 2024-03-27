@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head> 
+    <title>Elezioni</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet"></link>
+</head>
+<body>
+	<div class="centrato">
+    	<h3 class="tagTitolo">Elezioni</h3>
+    	<p>Lista delle schede trovate:</p>
+    	<div class="tabellaContainer">
+	    	<table class="tabella">
+	    		<thead>
+	        		<tr>
+			            <th>Codice</th>
+			            <th>Scadenza</th>
+			        </tr>
+	    		</thead>
+			    <tbody>
+				<tr th:if="${listaSchede.empty}">
+			            <td colspan="2">Non sono state trovate schede.</td>
+			        </tr>
+			        <tr th:each="scheda : ${listaSchede}">
+			            <td>
+			            	<span th:text="${scheda.codice}">Codice</span>
+			            </td>
+			            <td>
+			            	<span th:text="${scheda.scadenza}">Scadenza</span>
+			            </td>
+			        </tr>
+			    </tbody>
+			</table>
+		</div>
+		<form action="/">
+			<input type="submit" value="Torna a index" class="btn btn-secondary"/>
+		</form>
+	</div>
+</body>
+</html>

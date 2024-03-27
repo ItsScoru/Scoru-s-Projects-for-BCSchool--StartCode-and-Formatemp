@@ -1,0 +1,9 @@
+B – Creare una classe Ordine avente gli attributi id, dataRichiesta, prezzoTotale, numeroArticoli, i
+metodi get/set e l’override del metodo toString(). Creare una classe Articolo avente gli attributi codice,
+prezzo, nome, descrizione e categoria. Mappare le entità sul DB mediante l’utilizzo di Hibernate,
+tenendo conto che un ordine può contenere più di un articolo e che un articolo può essere contenuto in
+più ordini (associazione Many-to-Many). Implementare il metodo che salva le istanze sul DB, il metodo
+che legge le istanze dal DB, il metodo che cancella una determinata istanza mediante pk, il metodo che
+aggiorna il prezzo di un determinato articolo o il prezzo totale di un ordine. OPZIONALE: Inoltre,
+implementare un metodo che conti il numero delle istanze sia degli ordini che degli articoli presenti sul
+DB, stampare a video il valore ottenuto. L’utilizzo del design pattern DAO è opzionale.

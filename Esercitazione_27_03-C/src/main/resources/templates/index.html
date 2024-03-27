@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head> 
+    <title>Elezioni</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet"></link>
+</head>
+<body>
+	<div class="centrato">
+    	<h3 class="tagTitolo">Elezioni</h3>
+    	<p>Pagina di benvenuto della parte Web</p>
+    	
+    	<fieldset class="formDiv">
+    		<legend>Elenco degli elettori</legend>
+	    	<form class="unaForm" action="/findAllElettori">
+	    		<input type="submit" value="Vai" class="btn btn-primary"/>
+	    	</form>
+    	</fieldset>
+    	
+    	<fieldset class="formDiv">
+    		<legend>Elenco delle schede</legend>
+	    	<form class="unaForm" action="/findAllSchede">
+	    		<input type="submit" value="Vai" class="btn btn-primary"/>
+	    	</form>
+    	</fieldset>
+    	
+    	<fieldset class="formDiv">
+    		<legend>Elenco dei seggi</legend>
+	    	<form class="unaForm" action="/findAllSeggi">
+	    		<input type="submit" value="Vai" class="btn btn-primary"/>
+	    	</form>
+    	</fieldset>
+    	
+	</div>
+</body>
+</html>

@@ -48,6 +48,7 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="Esercitazione_27_03"/>
 			<item value="Esercitazione_3_22_03"/>
 			<item value="Esercitazione_2_22_03"/>
 			<item value="Esercitazione2203B"/>
@@ -62,6 +63,7 @@
 			<item value="esempiohibernate"/>
 		</list>
 		<list key="name">
+			<item value="Esercitazione_27_03"/>
 			<item value="Esercitazione_3_22_03"/>
 			<item value="Esercitazione_2_22_03"/>
 			<item value="Esercitazione2203B"/>
@@ -76,6 +78,7 @@
 			<item value="esempiohibernate"/>
 		</list>
 		<list key="artifactId">
+			<item value="Esercitazione_27_03"/>
 			<item value="Esercitazione_3_22_03"/>
 			<item value="Esercitazione_2_22_03"/>
 			<item value="Esercitazione2203B"/>

@@ -1,0 +1,46 @@
+body {
+	background-color: #008B8B;
+	color: #392B58;
+}
+
+fieldset, legend {
+	all: revert;
+	border-color: #008B8B;
+	border-width: 2px;
+	border-radius: 8px;
+}
+
+.tagTitolo {
+	text-decoration: underline;
+}
+
+.centrato {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
+.tabellaContainer {
+	display: flex;
+	justify-content: center;
+}
+
+.tabella {
+	min-width: 40%;
+	max-width: 80%;
+	text-align: center;
+}
+
+.ricerca {
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+}
+
+.formDiv {
+	display: inline-flex;
+}
+
+.formElettore * {
+	margin: 4px;
+}

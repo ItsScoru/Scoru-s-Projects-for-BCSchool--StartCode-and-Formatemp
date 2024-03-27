@@ -95,7 +95,7 @@ public class PersonaggioDaoImpl implements InterfacciaDao<Personaggio>{
 
 			t = s.beginTransaction();
 
-			NativeQuery<Personaggio> nq = s.createNativeQuery("DELETE FROM Stadio WHERE id = :id", Personaggio.class);
+			NativeQuery<Personaggio> nq = s.createNativeQuery("DELETE FROM Personaggio WHERE id = :id", Personaggio.class);
 
 			nq.setParameter("id", id);
 			nq.executeUpdate();
